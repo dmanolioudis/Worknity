@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>GrandHotel-Regular.ttf</string>
+		<string>ComicNeue-Bold.ttf</string>
+		<string>ComicNeue-BoltItalc.ttf</string>
+		<string>ComicNeue-Italic.ttf</string>
+		<string>ComicNeue-Light.ttf</string>
+		<string>ComicNeue-LightItalic.ttf</string>
+		<string>ComicNeue-Regular.ttf</string>
+		<string>ComicNeue-RegularItalic.ttf</string>
+	</array>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Η εφαρμογή χρειάζεται πρόσβαση στη συλλογή για την επιλογή φωτογραφιών και βίντεο.</string>
+	<key>NSPhotoLibraryAddUsageDescription</key>
+	<string>Η εφαρμογή χρειάζεται πρόσβαση για να αποθηκεύει φωτογραφίες και βίντεο απευθείας στη συλλογή.</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Η εφαρμογή χρειάζεται πρόσβαση στην κάμερα για να τραβάτε φωτογραφίες απευθείας στις δημοσιεύσεις σας.</string>
+</dict>
+</plist>
