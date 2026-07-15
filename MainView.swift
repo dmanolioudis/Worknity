@@ -6,7 +6,6 @@ import FirebaseFirestore
 struct MainView: View {
     @State private var userName = "Dimitrios"
     
-    // Bindings για το UnifiedTabBar
     @Binding var selectedTab: Tabs
     @Binding var storeSelectedTab: STabs
     @Binding var showOverlay: Bool
