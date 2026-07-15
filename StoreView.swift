@@ -24,7 +24,7 @@ struct StoreView: View {
                 case .messages:
                     StoreMessagesView(storeID: storeID, tabBarMode: $tabBarMode)
                 case .schedule:
-                    StoreScheduleView()
+                    StoreScheduleView(storeID: storeID)
                 }
             }
             .navigationTitle(storename)
@@ -52,10 +52,5 @@ struct StoreView: View {
             tabBarMode = .store
         }
     }
-}
-
-
-struct StoreScheduleView: View {
-    var body: some View { Text("Schedule") }
 }
 
