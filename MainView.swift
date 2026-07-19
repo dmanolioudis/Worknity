@@ -52,10 +52,10 @@ struct MainView: View {
                                 }
                             }
                         }
-                        .padding(.horizontal)
+                        //.padding(.horizontal)
                     }
                 }
-                Spacer()
+                //Spacer()
             }
         }
         .onAppear {

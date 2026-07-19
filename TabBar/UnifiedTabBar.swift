@@ -6,7 +6,7 @@ struct UnifiedTabBar: View {
     @Binding var storeSelectedTab: STabs
     
     @GestureState private var dragOffset: CGFloat = 0
-    @State private var containerWidth: CGFloat = 380
+    @State private var containerWidth: CGFloat = 350
     
     let mainColor = Color(hex: "#948979")
     let secondaryColor = Color(hex: "#DFD0B8")
@@ -16,7 +16,6 @@ struct UnifiedTabBar: View {
 
     var body: some View {
         ZStack(alignment: .leading) {
-            // 1. Glass Background
             backgroundCapsule
                 .frame(width: containerWidth, height: 64)
 
@@ -72,7 +71,7 @@ struct UnifiedTabBar: View {
     @ViewBuilder
     var backgroundCapsule: some View {
         if #available(iOS 26.0, *) {
-            Capsule(style: .continuous).glassEffect(.clear.tint(.black.opacity(0.4)).interactive())
+            Capsule(style: .continuous).glassEffect(.clear.tint(Color.colorBar.opacity(0.5)).interactive())
         } else {
             Capsule(style: .continuous).fill(.ultraThinMaterial)
         }

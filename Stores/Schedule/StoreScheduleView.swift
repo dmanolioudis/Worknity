@@ -6,23 +6,18 @@
 //
 
 
-//
-//  StoreScheduleView.swift
-//  Worknity
-//
-
 import SwiftUI
 import FirebaseAuth
 
-// MARK: - Helper για το Scroll Offset
-struct ScrollOffsetKey: PreferenceKey {
+// MARK: - Helper για το Scroll Progress (Απαραίτητο για το Animation)
+struct ScrollProgressKey: PreferenceKey {
     static var defaultValue: CGFloat = 0
     static func reduce(value: inout CGFloat, nextValue: () -> CGFloat) {
         value = nextValue()
     }
 }
 
-// MARK: - Enum για το Sheet
+// MARK: - Enum για τον έλεγχο του Sheet
 enum ScheduleSheetType: Identifiable {
     case add
     case edit(Shift)
@@ -35,128 +30,161 @@ enum ScheduleSheetType: Identifiable {
     }
 }
 
+// MARK: - Κεντρική Οθόνη Προγράμματος
 struct StoreScheduleView: View {
     let storeID: String
     @StateObject private var viewModel: StoreScheduleViewModel
     @State private var selectedDate: Date = Date()
     @State private var activeSheet: ScheduleSheetType?
     
-    // UI Constants
-    @State private var scrollOffset: CGFloat = 0
-    private let calendarHeight: CGFloat = 350
+    // Εδώ κρατάμε την πρόοδο του σκρολ (0.0 έως 1.0) για να ελέγχουμε την επικεφαλίδα
+    @State private var scrollProgress: CGFloat = 0
+    
     let mainColor = Color(hex: "#948979")
+    let calendarHeight: CGFloat = 330 // Το σταθερό ύψος του DatePicker
     
     init(storeID: String) {
         self.storeID = storeID
         _viewModel = StateObject(wrappedValue: StoreScheduleViewModel(storeID: storeID))
     }
     
-    // Υπολογισμός progress (0 = πάνω, 1 = κρυμμένο)
-    private var progress: CGFloat {
-        // Όταν το offset είναι 0, progress = 0. Όταν πάει -250, progress = 1
-        let maxScroll: CGFloat = 250
-        return min(max(0, -scrollOffset / maxScroll), 1)
+    var filteredShifts: [Shift] {
+        let dailyShifts = viewModel.shifts.filter { Calendar.current.isDate($0.startTime, inSameDayAs: selectedDate) }
+        
+        if viewModel.isManager {
+            return dailyShifts
+        } else {
+            guard let currentUID = Auth.auth().currentUser?.uid else { return [] }
+            return dailyShifts.filter { $0.employeeID == currentUID }
+        }
+    }
+    
+    // Εμφάνιση της ημερομηνίας: 0% όταν φαίνεται το ημερολόγιο, 100% όταν εξαφανιστεί (πάνω από το 50% του scroll)
+    var headerTextOpacity: Double {
+        let p = max(0, (scrollProgress - 0.5) * 2)
+        return Double(p)
     }
     
     var body: some View {
-        ZStack(alignment: .top) {
-            
-            // 1. Το ScrollView
-            ScrollView(.vertical, showsIndicators: false) {
-                VStack(spacing: 0) {
+        ScrollView(.vertical, showsIndicators: false) {
+            LazyVStack(spacing: 0, pinnedViews: [.sectionHeaders]) {
+                
+                // 1. ΤΟ ΗΜΕΡΟΛΟΓΙΟ ΜΕ ΤΟ ANIMATION (Collapsing Header)
+                GeometryReader { proxy in
+                    let minY = proxy.frame(in: .named("scroll")).minY
+                    let isScrollingUp = minY < 0
                     
-                    // Το Ημερολόγιο
-                    DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
-                        .datePickerStyle(.graphical)
-                        .tint(mainColor)
-                        .padding(.horizontal)
-                        .frame(height: calendarHeight)
-                        // ΕΔΩ ΓΙΝΕΤΑΙ ΤΟ ΜΑΓΙΚΟ:
-                        .scaleEffect(1 - (progress * 0.2)) // Μικραίνει
-                        .opacity(1 - (progress * 2))       // Σβήνει
-                        .offset(y: -progress * 50)         // Ανεβαίνει
+                    // Υπολογισμοί για το πόσο συρρικνώνεται
+                    let shrinkAmount = isScrollingUp ? -minY : 0
+                    let currentHeight = isScrollingUp ? max(0, calendarHeight - shrinkAmount) : calendarHeight
+                    let progress = min(1, max(0, shrinkAmount / calendarHeight))
                     
-                    // Η Λίστα
-                    shiftsList
-                        .padding(.top, 20)
-                }
-                .background(
-                    GeometryReader { proxy in
-                        Color.clear.preference(
-                            key: ScrollOffsetKey.self,
-                            value: proxy.frame(in: .named("ScrollSpace")).minY
-                        )
+                    // Κρατάμε το ημερολόγιο οπτικά κολλημένο στην κορυφή της οθόνης
+                    let offset: CGFloat = isScrollingUp ? shrinkAmount : 0
+                    
+                    ZStack(alignment: .top) {
+                        DatePicker("Select Date", selection: $selectedDate, displayedComponents: .date)
+                            .datePickerStyle(.graphical)
+                            .tint(mainColor)
+                            .padding(.horizontal)
+                            .background(Color(UIColor.systemBackground))
+                            // Το DatePicker έχει πάντα σταθερό ύψος εσωτερικά για να μην «σπάει» το layout του
+                            .frame(height: calendarHeight, alignment: .top)
+                            .opacity(Double(1.0 - (progress * 1.5))) // Ξεθωριάζει ομαλά όσο μικραίνει
                     }
-                )
+                    // Το εξωτερικό container συρρικνώνεται και κόβει (clip) το ημερολόγιο
+                    .frame(height: currentHeight, alignment: .top)
+                    .clipped()
+                    .offset(y: offset)
+                    
+                    // Στέλνουμε την πρόοδο στο View για να τη διαβάσει η επικεφαλίδα
+                    .preference(key: ScrollProgressKey.self, value: progress)
+                }
+                .frame(height: calendarHeight) // Διατηρεί τον απαραίτητο χώρο στο layout
+                .zIndex(0)
+                
+                // 2. STICKY HEADER & ΛΙΣΤΑ ΚΑΡΤΩΝ
+                // Οι κάρτες πλέον ακολουθούν ακριβώς από κάτω το ημερολόγιο
+                Section(header: stickyHeader) {
+                    shiftsList
+                }
+                .zIndex(1)
             }
-            .coordinateSpace(name: "ScrollSpace")
-            .onPreferenceChange(ScrollOffsetKey.self) { value in
-                self.scrollOffset = value
-            }
-            
-            // 2. Το Sticky Header (Εμφανίζεται πάνω από το ScrollView)
-            StickyHeaderView(selectedDate: selectedDate, viewModel: viewModel, action: { activeSheet = .add })
-                .opacity(progress > 0.5 ? 1 : 0) // Εμφανίζεται σταδιακά
-                .animation(.easeInOut(duration: 0.2), value: progress)
+        }
+        .coordinateSpace(name: "scroll")
+        .onPreferenceChange(ScrollProgressKey.self) { progress in
+            self.scrollProgress = progress
         }
         .sheet(item: $activeSheet) { sheetType in
             switch sheetType {
-            case .add: AddShiftView(viewModel: viewModel, shiftToEdit: nil)
-            case .edit(let shift): AddShiftView(viewModel: viewModel, shiftToEdit: shift)
+            case .add:
+                AddShiftView(viewModel: viewModel, shiftToEdit: nil)
+            case .edit(let shift):
+                AddShiftView(viewModel: viewModel, shiftToEdit: shift)
             }
         }
     }
     
-    // MARK: - Logic & Subviews
-    var filteredShifts: [Shift] {
-        let dailyShifts = viewModel.shifts.filter { Calendar.current.isDate($0.startTime, inSameDayAs: selectedDate) }
-        return viewModel.isManager ? dailyShifts : dailyShifts.filter { $0.employeeID == Auth.auth().currentUser?.uid }
-    }
+    // MARK: - Components
     
-    private var shiftsList: some View {
-        LazyVStack(spacing: 12) {
-            if filteredShifts.isEmpty {
-                Text("Δεν υπάρχουν βάρδιες για αυτή την ημέρα.")
-                    .foregroundColor(.gray)
-                    .padding(.top, 40)
-            } else {
-                ForEach(filteredShifts) { shift in
-                    ShiftCardView(shift: shift, isManager: viewModel.isManager, onEdit: {
-                        activeSheet = .edit(shift)
-                    }, onDelete: {
-                        viewModel.deleteShift(shiftID: shift.id)
-                    })
+    private var stickyHeader: some View {
+        HStack {
+            // Η ημερομηνία εμφανίζεται ΜΟΝΟ όταν το ημερολόγιο κλείνει
+            Text(selectedDate.formatted(.dateTime.day().month().year()))
+                .font(.headline)
+                .foregroundColor(.primary)
+                .opacity(headerTextOpacity)
+            
+            Spacer()
+            
+            // Το κουμπί προσθήκης μένει πάντα ορατό
+            if viewModel.isManager {
+                Button(action: { activeSheet = .add }) {
+                    Image(systemName: "plus.circle.fill")
+                        .font(.title2)
+                        .foregroundColor(mainColor)
                 }
             }
         }
         .padding(.horizontal)
-        .padding(.bottom, 150)
+        .padding(.vertical, 12)
+        // Σταθερό background για να μην φαίνονται οι κάρτες από πίσω όταν κολλήσει
+        .background(Color(UIColor.systemBackground))
+        // Εμφάνιση σκιάς μόνο όταν η επικεφαλίδα καρφωθεί πάνω
+        .shadow(color: .black.opacity(scrollProgress >= 0.95 ? 0.05 : 0), radius: 3, y: 3)
     }
-}
-
-// MARK: - Sticky Header
-struct StickyHeaderView: View {
-    let selectedDate: Date
-    let viewModel: StoreScheduleViewModel
-    let action: () -> Void
     
-    var body: some View {
-        HStack {
-            Text(selectedDate.formatted(.dateTime.day().month().year()))
-                .font(.headline)
-            Spacer()
-            if viewModel.isManager {
-                Button(action: action) {
-                    Image(systemName: "plus.circle.fill").font(.title2).foregroundColor(Color(hex: "#948979"))
+    private var shiftsList: some View {
+        VStack {
+            if filteredShifts.isEmpty {
+                VStack(spacing: 12) {
+                    Image(systemName: "calendar.badge.minus")
+                        .font(.largeTitle)
+                        .foregroundColor(.gray.opacity(0.5))
+                    Text(viewModel.isManager ? "Δεν υπάρχουν βάρδιες για το κατάστημα." : "Δεν έχεις βάρδια αυτήν την ημέρα.")
+                        .font(.subheadline)
+                        .foregroundColor(.gray)
                 }
+                .padding(.top, 40)
+            } else {
+                LazyVStack(spacing: 12) {
+                    ForEach(filteredShifts) { shift in
+                        ShiftCardView(shift: shift, isManager: viewModel.isManager, onEdit: {
+                            activeSheet = .edit(shift)
+                        }, onDelete: {
+                            viewModel.deleteShift(shiftID: shift.id)
+                        })
+                    }
+                }
+                .padding(.horizontal)
+                .padding(.top, 10)
             }
         }
-        .padding()
-        .background(.ultraThinMaterial)
+        .padding(.bottom, 150) // Ασφάλεια για το TabBar
     }
 }
 
-// MARK: - Shift Card
+// MARK: - Εμφάνιση της Βάρδιας (Card)
 struct ShiftCardView: View {
     var shift: Shift
     var isManager: Bool
@@ -181,10 +209,19 @@ struct ShiftCardView: View {
             if isManager {
                 HStack(spacing: 12) {
                     Button(action: onEdit) {
-                        Image(systemName: "pencil").foregroundColor(Color(hex: "#948979")).padding(8).background(Color(hex: "#948979").opacity(0.1)).clipShape(Circle())
+                        Image(systemName: "pencil")
+                            .foregroundColor(Color(hex: "#948979"))
+                            .padding(8)
+                            .background(Color(hex: "#948979").opacity(0.1))
+                            .clipShape(Circle())
                     }
+                    
                     Button(action: onDelete) {
-                        Image(systemName: "trash").foregroundColor(.red.opacity(0.8)).padding(8).background(Color.red.opacity(0.1)).clipShape(Circle())
+                        Image(systemName: "trash")
+                            .foregroundColor(.red.opacity(0.8))
+                            .padding(8)
+                            .background(Color.red.opacity(0.1))
+                            .clipShape(Circle())
                     }
                 }
             }

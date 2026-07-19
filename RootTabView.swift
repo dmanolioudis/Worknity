@@ -36,7 +36,9 @@ struct RootTabView: View {
                     selectedTab: $selectedTab,
                     storeSelectedTab: $storeSelectedTab
                 )
+                .padding(.bottom)
             }
         }
+        .ignoresSafeArea()
     }
 }

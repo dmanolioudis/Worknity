@@ -45,7 +45,7 @@ struct StoreView: View {
             .sheet(isPresented: $showAddMember) {
                 AddMembersView(storeID: storeID)
                     .presentationDetents([.height(300)])
-                    .presentationBackground(.thinMaterial)
+                    .presentationDragIndicator(.visible)
             }
         }
         .onAppear {
