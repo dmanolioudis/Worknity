@@ -4,68 +4,109 @@ import FirebaseAuth
 import FirebaseFirestore
 
 struct MainView: View {
-    @State private var userName = "Dimitrios"
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     
-    @Binding var selectedTab: Tabs
-    @Binding var storeSelectedTab: STabs
-    @Binding var showOverlay: Bool
-    @Binding var tabBarMode: TabBarMode
+    let onSelectStore: (Store) -> Void
     
     @State private var stores: [Store] = []
     @State private var isLoading = false
+    @State private var hasFetchedStores = false
+    @State private var showCreateStore = false
+    @State private var newStoreName = ""
     
-    let mainColor = Color(hex: "#948979")
-    let secondaryColor = Color(hex: "#DFD0B8")
-    
+    private var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: 14), count: dynamicTypeSize.isAccessibilitySize ? 1 : 2)
+    }
+
     var body: some View {
-        ZStack {
-            AnimatedBlobBackground()
-                .ignoresSafeArea()
-            
-            VStack(alignment: .leading, spacing: 16) {
-                Text("Hello, \(userName)")
-                    .font(.largeTitle.weight(.semibold))
-                    .padding(.horizontal)
-                    .padding(.top, 40)
-                
-                if isLoading {
-                    PlaceholderGrid()
-                        .padding(.horizontal)
-                } else {
-                    ScrollView {
-                        let columns = [
-                            GridItem(.flexible(), spacing: 12),
-                            GridItem(.flexible(), spacing: 12)
-                        ]
-                        
-                        LazyVGrid(columns: columns, spacing: 12) {
-                            ForEach(stores) { store in
-                                NavigationLink {
-                                    StoreView(
-                                        storename: store.name,
-                                        storeID: store.id,
-                                        tabBarMode: $tabBarMode,
-                                        selectedTab: $storeSelectedTab
-                                    )
-                                } label: {
-                                    StoreCard(store: store, mainColor: mainColor)
-                                }
-                            }
-                        }
-                        //.padding(.horizontal)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                AccountPageBanner(
+                    title: "Ο χώρος σου",
+                    subtitle: "Η ομάδα, τα νέα και το πρόγραμμά σου. Όλα ξεκινούν εδώ.",
+                    symbol: "building.2"
+                )
+
+                Button {
+                    newStoreName = ""
+                    showCreateStore = true
+                } label: {
+                    Label("Νέο κατάστημα", systemImage: "plus")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(StorePrimaryButtonStyle())
+                .disabled(isLoading || !hasFetchedStores)
+
+                HStack {
+                    Text("Τα καταστήματά σου")
+                        .font(.headline)
+                        .accessibilityAddTraits(.isHeader)
+                    Spacer()
+                    if hasFetchedStores && !isLoading {
+                        Text(stores.count, format: .number)
+                            .font(.caption.weight(.semibold))
+                            .monospacedDigit()
+                            .padding(.horizontal, 10)
+                            .padding(.vertical, 6)
+                            .background(StoreDesign.softAccent, in: Capsule())
+                            .accessibilityLabel("\(stores.count) καταστήματα")
                     }
                 }
-                //Spacer()
+
+                if isLoading || !hasFetchedStores {
+                    PlaceholderGrid(columns: columns)
+                } else if stores.isEmpty {
+                    VStack(spacing: 14) {
+                        StoreIcon(symbol: "building.2")
+                        Text("Ο χώρος σου περιμένει την ομάδα")
+                            .font(.headline)
+                        Text("Τα καταστήματα στα οποία συμμετέχεις θα εμφανίζονται εδώ.")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                    }
+                    .multilineTextAlignment(.center)
+                    .frame(maxWidth: .infinity)
+                    .padding(28)
+                    .storeCard()
+                } else {
+                    LazyVGrid(columns: columns, spacing: 14) {
+                        ForEach(stores) { store in
+                            Button {
+                                onSelectStore(store)
+                            } label: {
+                                StoreCard(store: store)
+                            }
+                            .buttonStyle(.plain)
+                            .accessibilityHint("Ανοίγει τα νέα, τα μηνύματα και το πρόγραμμα του καταστήματος")
+                        }
+                    }
+                }
             }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 28)
+        }
+        .background { StoreBackdrop() }
+        .sheet(isPresented: $showCreateStore) {
+            AddStoreView(storeName: $newStoreName) { store in
+                stores.removeAll { $0.id == store.id }
+                stores.insert(store, at: 0)
+                showCreateStore = false
+            }
+            .presentationDetents([.large])
+            .presentationDragIndicator(.visible)
         }
         .onAppear {
-            tabBarMode = .root
-            fetchStores()
+            // Preserve the grid when returning from a store.
+            if !hasFetchedStores && !isLoading {
+                fetchStores()
+            }
         }
     }
-    
+
     private func fetchStores() {
         guard let user = Auth.auth().currentUser else { return }
+        hasFetchedStores = true
         isLoading = true
         let db = Firestore.firestore()
         let userID = user.uid
@@ -122,60 +163,62 @@ struct MainView: View {
 // MARK: - Components
 private struct StoreCard: View {
     let store: Store
-    let mainColor: Color
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 16) {
             HStack {
-                Image(systemName: "building.2.crop.circle")
-                    .font(.system(size: 28))
-                    .foregroundStyle(mainColor)
-                Spacer()
-                Image(systemName: "chevron.right")
-                    .font(.footnote.weight(.semibold))
-                    .foregroundStyle(.secondary)
+                StoreIcon(symbol: "building.2")
+                    .accessibilityHidden(true)
+                Spacer(minLength: 0)
+                Image(systemName: "arrow.up.right")
+                    .font(.caption.weight(.semibold))
+                    .foregroundStyle(StoreDesign.ink)
+                    .accessibilityHidden(true)
             }
-            Text(store.name)
-                .font(.headline)
-                .foregroundStyle(.primary)
-                .lineLimit(2)
-            Text(store.address)
-                .font(.caption)
-                .foregroundStyle(.secondary)
-                .lineLimit(1)
+            VStack(alignment: .leading, spacing: 7) {
+                Text(store.name)
+                    .font(.headline)
+                    .foregroundStyle(.primary)
+                    .fixedSize(horizontal: false, vertical: true)
+                if !store.address.isEmpty {
+                    Text(store.address)
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+            Spacer(minLength: 0)
         }
-        .padding(16)
-        .frame(maxWidth: .infinity, minHeight: 120)
-        .background(
-            .ultraThinMaterial,
-            in: RoundedRectangle(cornerRadius: 18, style: .continuous)
-        )
-        .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .strokeBorder(Color.white.opacity(0.1))
-        )
+        .padding(18)
+        .frame(maxWidth: .infinity, minHeight: 174, alignment: .topLeading)
+        .storeCard()
+        .contentShape(RoundedRectangle(cornerRadius: 22))
+        .accessibilityElement(children: .combine)
     }
 }
 
 private struct PlaceholderGrid: View {
+    let columns: [GridItem]
+
     var body: some View {
-        let columns = [
-            GridItem(.flexible(), spacing: 12),
-            GridItem(.flexible(), spacing: 12)
-        ]
-        LazyVGrid(columns: columns, spacing: 12) {
-            ForEach(0..<6) { _ in
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(.ultraThinMaterial)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 18, style: .continuous)
-                            .strokeBorder(Color.white.opacity(0.15))
-                    )
-                    .frame(height: 120)
-                    .redacted(reason: .placeholder)
+        LazyVGrid(columns: columns, spacing: 14) {
+            ForEach(0..<4) { _ in
+                VStack(alignment: .leading, spacing: 16) {
+                    RoundedRectangle(cornerRadius: 16).fill(StoreDesign.softAccent)
+                        .frame(width: 48, height: 48)
+                    RoundedRectangle(cornerRadius: 5).fill(StoreDesign.softAccent)
+                        .frame(height: 14)
+                    RoundedRectangle(cornerRadius: 5).fill(StoreDesign.softAccent)
+                        .frame(width: 70, height: 10)
+                    Spacer(minLength: 0)
+                }
+                .padding(18)
+                .frame(minHeight: 174)
+                .storeCard()
+                .accessibilityHidden(true)
             }
         }
+        .accessibilityElement(children: .ignore)
+        .accessibilityLabel("Φόρτωση καταστημάτων")
     }
 }
-
-

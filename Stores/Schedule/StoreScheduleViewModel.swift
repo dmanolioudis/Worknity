@@ -17,6 +17,8 @@ class StoreScheduleViewModel: ObservableObject {
     
     private var db = Firestore.firestore()
     private var shiftsListener: ListenerRegistration?
+    private var roleListener: ListenerRegistration?
+    private var membersGeneration = UUID()
     
     let storeID: String
     
@@ -28,49 +30,43 @@ class StoreScheduleViewModel: ObservableObject {
     
     deinit {
         shiftsListener?.remove()
+        roleListener?.remove()
     }
     
     private func checkIfManagerAndFetchMembers() {
-        guard let currentUID = Auth.auth().currentUser?.uid else { return }
-        
-        db.collection("stores").document(storeID).getDocument { [weak self] snapshot, error in
-            guard let self = self, let data = snapshot?.data() else { return }
-            
-            let managerUID = data["manager"] as? String ?? ""
+        roleListener?.remove()
+        roleListener = db.collection("stores").document(storeID).addSnapshotListener { [weak self] snapshot, error in
+            guard let self else { return }
+            let roles = StoreAdministration.roles(from: error == nil ? snapshot?.data() ?? [:] : [:])
             DispatchQueue.main.async {
-                self.isManager = (currentUID == managerUID)
+                self.isManager = roles.can(.schedule, uid: Auth.auth().currentUser?.uid ?? "")
+                self.fetchMembersData(uids: roles.participants.sorted())
             }
-            
-            var participantUIDs = data["participants"] as? [String] ?? []
-            if !participantUIDs.contains(managerUID) && !managerUID.isEmpty {
-                participantUIDs.append(managerUID)
-            }
-            
-            self.fetchMembersData(uids: participantUIDs)
         }
     }
-    
+
     private func fetchMembersData(uids: [String]) {
-        guard !uids.isEmpty else { return }
-        let chunkedUIDs = Array(uids.prefix(10))
-        
-        db.collection("users").whereField("uid", in: chunkedUIDs).getDocuments { [weak self] snapshot, error in
-            guard let self = self, let documents = snapshot?.documents else { return }
-            
-            let members = documents.compactMap { doc -> StoreMember? in
-                let data = doc.data()
-                let uid = doc.documentID
-                let name = data["fullName"] as? String ?? "Άγνωστος"
-                let photo = data["photoURL"] as? String
-                return StoreMember(id: uid, fullName: name, photoURL: photo)
-            }
-            
-            DispatchQueue.main.async {
-                self.storeMembers = members
+        let generation = UUID()
+        membersGeneration = generation
+        guard !uids.isEmpty else { storeMembers = []; return }
+        let group = DispatchGroup()
+        var members: [StoreMember] = []
+        for uid in uids {
+            group.enter()
+            db.collection("users").document(uid).getDocument { snapshot, _ in
+                DispatchQueue.main.async {
+                    defer { group.leave() }
+                    guard let data = snapshot?.data() else { return }
+                    members.append(StoreMember(id: uid, fullName: data["fullName"] as? String ?? AppL10n.text("Μέλος"), photoURL: data["photoURL"] as? String))
+                }
             }
         }
+        group.notify(queue: .main) { [weak self] in
+            guard let self, self.membersGeneration == generation else { return }
+            self.storeMembers = members.sorted { $0.fullName.localizedCaseInsensitiveCompare($1.fullName) == .orderedAscending }
+        }
     }
-    
+
     private func listenToShifts() {
         shiftsListener = db.collection("stores").document(storeID).collection("shifts")
             .order(by: "startTime")
@@ -104,6 +100,7 @@ class StoreScheduleViewModel: ObservableObject {
     
     // ΜΑΖΙΚΗ ΕΓΓΡΑΦΗ (Υποστηρίζει και Μονή και Σπαστή Βάρδια)
     func addMassShifts(employee: StoreMember, dates: Set<DateComponents>, startTime1: Date, endTime1: Date, isSplit: Bool, startTime2: Date, endTime2: Date) {
+        guard isManager else { return }
         let batch = db.batch()
         let calendar = Calendar.current
         
@@ -155,6 +152,7 @@ class StoreScheduleViewModel: ObservableObject {
     
     // ΕΠΕΞΕΡΓΑΣΙΑ ΥΠΑΡΧΟΥΣΑΣ ΒΑΡΔΙΑΣ
     func updateShift(shiftID: String, originalDate: Date, newStartTime: Date, newEndTime: Date) {
+        guard isManager else { return }
         let calendar = Calendar.current
         
         // Κρατάμε το έτος/μήνα/μέρα της αρχικής βάρδιας
@@ -180,6 +178,7 @@ class StoreScheduleViewModel: ObservableObject {
     }
     
     func deleteShift(shiftID: String) {
+        guard isManager else { return }
         db.collection("stores").document(storeID).collection("shifts").document(shiftID).delete()
     }
 }

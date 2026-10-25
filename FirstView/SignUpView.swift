@@ -18,13 +18,10 @@ let countries: [Country] = [
     Country(name: "Germany", prefix: "+49", phoneLength: 11)
 ]
 
-
 struct SignUpView: View {
     var namespace: Namespace.ID
     var dismiss: () -> Void
-    let mainColor = Color(hex: "#948979")
-    let secondaryColor = Color(hex: "#DFD0B8")
-
+    var onSignIn: (() -> Void)? = nil
 
     @State private var fullName = ""
     @State private var username = ""
@@ -38,9 +35,7 @@ struct SignUpView: View {
     @State private var selectedImage: UIImage?
     @State private var showImagePicker = false
     @FocusState public var isTextFieldFocused: Bool
-
-
-
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     @State private var selectedCountry: Country = countries.first!
 
@@ -69,7 +64,7 @@ struct SignUpView: View {
         let passwordRegEx = #"^(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$&*._-]).{8,}$"#
         return NSPredicate(format: "SELF MATCHES %@", passwordRegEx).evaluate(with: password)
     }
-    
+
     func closeKeyboardAndDismiss() {
         isTextFieldFocused = false
 
@@ -80,167 +75,217 @@ struct SignUpView: View {
     }
 
     var body: some View {
-        VStack(spacing: 20) {
-            Color.clear
-            Text("Worknity")
-                .font(.custom("Grand Hotel", size: 66))
-                .matchedGeometryEffect(id: "logo", in: namespace)
-                .padding(.top,)
-                .onTapGesture {
-                    closeKeyboardAndDismiss()
-                }
-            Group {
-                Button(action: {
-                    showImagePicker = true
-                }) {
-                    if let selectedImage {
-                        Image(uiImage: selectedImage)
-                            .resizable()
-                            .scaledToFill()
-                            .frame(width: 90, height: 90)
-                            .clipShape(Circle())
-                    } else {
-                        Image(systemName: "person.crop.circle.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 90, height: 90)
-                            .foregroundColor(.gray)
-                    }
-                }
-                .sheet(isPresented: $showImagePicker) {
-                    ImagePicker(image: $selectedImage)
-                }
-                .padding()
+        ScrollView {
+            VStack(alignment: .leading, spacing: 28) {
+                AuthTopBar(namespace: namespace, onBack: closeKeyboardAndDismiss)
+                AuthHeading(eyebrow: "ΜΙΑ ΝΕΑ ΑΡΧΗ", title: "Γίνε μέρος\nτης ομάδας.", subtitle: "Δημιούργησε τον λογαριασμό σου και έλα πιο κοντά στους ανθρώπους της δουλειάς σου.")
 
-                TextField("Full Name", text: $fullName)
-                    .autocapitalization(.words)
-                    .padding(.horizontal)
-                    .frame(width: 350, height: 50)
-                    .background(.thinMaterial)
-                    .cornerRadius(12)
-                    .focused($isTextFieldFocused)
-
-                TextField("Username", text: $username)
-                    .autocapitalization(.none)
-                    .padding(.horizontal)
-                    .frame(width: 350, height: 50)
-                    .background(.thinMaterial)
-                    .cornerRadius(12)
-                    .focused($isTextFieldFocused)
-                
-                TextField("Email", text: $email)
-                    .textContentType(.emailAddress)
-                    .autocapitalization(.none)
-                    .keyboardType(.emailAddress)
-                    .padding(.horizontal)
-                    .frame(width: 350, height: 50)
-                    .background(.thinMaterial)
-                    .cornerRadius(12)
-                    .focused($isTextFieldFocused)
-
-                SecureField("Password", text: $password)
-                    .textContentType(.newPassword)
-                    .padding(.horizontal)
-                    .frame(width: 350, height: 50)
-                    .background(.thinMaterial)
-                    .cornerRadius(12)
-                    .focused($isTextFieldFocused)
-
-                // Country Picker + Phone
-                HStack {
-                    Menu {
-                        ForEach(countries) { country in
-                            Button(action: {
-                                selectedCountry = country
-                            }) {
-                                Text("\(country.name) (\(country.prefix))")
+                VStack(alignment: .leading, spacing: 20) {
+                    let photoLayout = dynamicTypeSize.isAccessibilitySize
+                        ? AnyLayout(VStackLayout(alignment: .leading, spacing: 16))
+                        : AnyLayout(HStackLayout(alignment: .center, spacing: 16))
+                    photoLayout {
+                        Button { showImagePicker = true } label: {
+                            ZStack(alignment: .bottomTrailing) {
+                                Group {
+                                    if let selectedImage {
+                                        Image(uiImage: selectedImage).resizable().scaledToFill()
+                                    } else {
+                                        Image(systemName: "person.crop.circle.fill")
+                                            .resizable().scaledToFit()
+                                            .foregroundStyle(StoreDesign.ink)
+                                    }
+                                }
+                                .frame(width: 72, height: 72)
+                                .clipShape(Circle())
+                                Image(systemName: "plus")
+                                    .font(.caption.weight(.bold))
+                                    .foregroundStyle(StoreDesign.actionLabel)
+                                    .frame(width: 26, height: 26)
+                                    .background(StoreDesign.actionFill, in: Circle())
+                                    .overlay(Circle().strokeBorder(StoreDesign.surface, lineWidth: 2))
                             }
                         }
-                    } label: {
-                        Text(selectedCountry.prefix)
-                            .padding(.horizontal)
-                            .frame(height: 50)
-                            .background(.ultraThinMaterial)
-                            .cornerRadius(12)
-                            .accentColor(mainColor)
+                        .buttonStyle(.plain)
+                        .accessibilityLabel("Επιλογή φωτογραφίας προφίλ")
 
-                    }
-                    .frame(width: 70)
-
-                    TextField("Phone Number", text: $phone)
-                        .keyboardType(.numberPad)
-                        .padding(.horizontal)
-                        .frame(height: 50)
-                        .background(.thinMaterial)
-                        .cornerRadius(12)
-                        .focused($isTextFieldFocused)
-                }
-                .frame(width: 350)
-            }
-            
-            Spacer()
-
-            if let error = errorMessage {
-                Text(error)
-                    .foregroundColor(.red)
-                    .font(.footnote)
-                    .multilineTextAlignment(.center)
-                    .padding(.horizontal)
-            }
-
-            Button("Register") {
-                if !isFormValid {
-                    errorMessage = "Please fill in all fields correctly"
-                } else {
-                    errorMessage = nil
-                    let fullPhone = "\(selectedCountry.prefix)\(phone)"
-
-                    authViewModel.register(
-                        fullName: fullName,
-                        dateOfBirth: dateOfBirth,
-                        gender: gender,
-                        username: username,
-                        email: email,
-                        password: password,
-                        phone: fullPhone,
-                        image: selectedImage
-                    ) { error in
-                        if let error = error {
-                            self.errorMessage = error
+                        VStack(alignment: .leading, spacing: 4) {
+                            Text("Το πρόσωπο πίσω από το όνομα")
+                                .font(.subheadline.weight(.semibold))
+                            Button(selectedImage == nil ? "Προσθήκη φωτογραφίας" : "Αλλαγή φωτογραφίας") { showImagePicker = true }
+                                .font(.caption)
+                                .foregroundStyle(StoreDesign.ink)
+                                .frame(minHeight: 44)
+                            Text("Προαιρετικό")
+                                .font(.caption2)
+                                .foregroundStyle(.secondary)
                         }
                     }
 
+                    Rectangle().fill(StoreDesign.line).frame(height: 1)
+
+                    AuthField("Ονοματεπώνυμο", symbol: "person") {
+                        TextField("Το όνομά σου", text: $fullName)
+                            .textContentType(.name)
+                            .textInputAutocapitalization(.words)
+                            .focused($isTextFieldFocused)
+                    }
+                    AuthField("Όνομα χρήστη", symbol: "at") {
+                        TextField("username", text: $username)
+                            .textContentType(.username)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .focused($isTextFieldFocused)
+                    }
+                }
+                .padding(22)
+                .storeCard(radius: 26)
+
+                VStack(alignment: .leading, spacing: 20) {
+                    Text("Στοιχεία λογαριασμού")
+                        .font(.headline)
+                        .accessibilityAddTraits(.isHeader)
+                    AuthField("Email", symbol: "envelope") {
+                        TextField("email@example.com", text: $email)
+                            .textContentType(.emailAddress)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .keyboardType(.emailAddress)
+                            .focused($isTextFieldFocused)
+                    }
+                    VStack(alignment: .leading, spacing: 8) {
+                        AuthField("Κωδικός πρόσβασης", symbol: "lock") {
+                            SecureField("Δημιούργησε έναν κωδικό", text: $password)
+                                .textContentType(.newPassword)
+                                .focused($isTextFieldFocused)
+                        }
+                        Text("Τουλάχιστον 8 χαρακτήρες, ένα κεφαλαίο, ένας αριθμός και ένα από τα σύμβολα !@#$&*._-")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Κινητό τηλέφωνο").font(.subheadline.weight(.medium))
+                        let phoneLayout = dynamicTypeSize.isAccessibilitySize
+                            ? AnyLayout(VStackLayout(alignment: .leading, spacing: 10))
+                            : AnyLayout(HStackLayout(spacing: 10))
+                        phoneLayout {
+                            Menu {
+                                ForEach(countries) { country in
+                                    Button { selectedCountry = country } label: {
+                                        Text("\(country.name) (\(country.prefix))")
+                                    }
+                                }
+                            } label: {
+                                HStack(spacing: 5) {
+                                    Text(selectedCountry.prefix)
+                                        .font(.subheadline.weight(.medium))
+                                    Image(systemName: "chevron.down").font(.caption2.weight(.semibold))
+                                }
+                                .foregroundStyle(.primary)
+                                .padding(.horizontal, 12)
+                                .frame(minHeight: 50)
+                                .background(StoreDesign.softAccent, in: RoundedRectangle(cornerRadius: 15))
+                            }
+                            .accessibilityLabel("Κωδικός χώρας")
+                            .accessibilityValue("\(selectedCountry.name), \(selectedCountry.prefix)")
+
+                            TextField("Αριθμός κινητού", text: $phone)
+                                .textContentType(.telephoneNumber)
+                                .keyboardType(.numberPad)
+                                .focused($isTextFieldFocused)
+                                .font(.body)
+                                .padding(.horizontal, 14)
+                                .padding(.vertical, 13)
+                                .frame(minHeight: 50)
+                                .background(StoreDesign.softAccent.opacity(0.7), in: RoundedRectangle(cornerRadius: 15))
+                                .overlay(RoundedRectangle(cornerRadius: 15).strokeBorder(StoreDesign.line, lineWidth: 1))
+                                .accessibilityLabel("Αριθμός κινητού")
+                        }
+                        Text("\(selectedCountry.phoneLength) ψηφία, χωρίς τον κωδικό χώρας.")
+                            .font(.caption)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+                .padding(22)
+                .storeCard(radius: 26)
+
+                if let error = errorMessage {
+                    AuthErrorMessage(message: error)
+                }
+
+                Button(action: submit) {
+                    HStack {
+                        Text("Δημιουργία λογαριασμού")
+                        Spacer(minLength: 4)
+                        Image(systemName: "arrow.right")
+                    }
+                    .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(StorePrimaryButtonStyle())
+                .disabled(!isFormValid)
+
+                if let onSignIn {
+                    VStack(spacing: 6) {
+                        Text("Έχεις ήδη λογαριασμό;")
+                            .font(.subheadline)
+                            .foregroundStyle(.secondary)
+                        Button("Σύνδεση") {
+                            isTextFieldFocused = false
+                            onSignIn()
+                        }
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundStyle(.primary)
+                        .frame(minHeight: 44)
+                    }
+                    .frame(maxWidth: .infinity)
                 }
             }
-            .padding()
-            .frame(width: 200)
-            .background(isFormValid ? mainColor.opacity(1.0) : mainColor.opacity(0.5))
-            .foregroundColor(.white)
-            .cornerRadius(12)
+            .frame(maxWidth: 500)
+            .padding(.horizontal, 24)
             .padding(.top, 20)
-            .opacity(isFormValid ? 1.0 : 0.5)
-            .disabled(!isFormValid)
+            .padding(.bottom, 28)
+            .frame(maxWidth: .infinity)
+        }
+        .scrollDismissesKeyboard(.interactively)
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(image: $selectedImage)
+        }
+    }
 
-            Button("Back") {
-                withAnimation(.spring()) {
-                    dismiss()
+    private func submit() {
+        if !isFormValid {
+            errorMessage = "Συμπλήρωσε σωστά όλα τα πεδία."
+        } else {
+            errorMessage = nil
+            let fullPhone = "\(selectedCountry.prefix)\(phone)"
+
+            authViewModel.register(
+                fullName: fullName,
+                dateOfBirth: dateOfBirth,
+                gender: gender,
+                username: username,
+                email: email,
+                password: password,
+                phone: fullPhone,
+                image: selectedImage
+            ) { error in
+                if let error = error {
+                    self.errorMessage = error
                 }
             }
-            .foregroundColor(.gray)
 
-            Spacer()
         }
-        .onTapGesture {
-            isTextFieldFocused = false
-        }
-    
-        .padding()
     }
 }
 
 struct SignUpView_Previews: PreviewProvider {
     @Namespace static var ns
     static var previews: some View {
-        SignUpView(namespace: ns, dismiss: {})
+        ZStack {
+            AnimatedBlobBackground()
+            SignUpView(namespace: ns, dismiss: {})
+        }
     }
 }

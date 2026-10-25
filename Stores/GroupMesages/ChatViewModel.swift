@@ -19,20 +19,48 @@ class ChatViewModel: ObservableObject {
     @Published var userProfileImages: [String: String] = [:]
     @Published var userNames: [String: String] = [:]
     @Published var isUploading = false
+    @Published var operationError: String?
     
     private var db = Firestore.firestore()
     private var storage = Storage.storage()
     let storeID: String
-    
-    init(storeID: String) {
+    let groupID: String?
+    private var messagesListener: ListenerRegistration?
+    private var hasConversationAccess = false
+    private var listenerGeneration = UUID()
+    private var messagesCollection: CollectionReference {
+        let store = db.collection("stores").document(storeID)
+        if let groupID { return store.collection("groups").document(groupID).collection("messages") }
+        return store.collection("messages")
+    }
+
+    init(storeID: String, groupID: String? = nil, startListening: Bool = true) {
         self.storeID = storeID
-        fetchMessages()
+        self.groupID = groupID
+        if startListening { fetchMessages() }
     }
     
+    deinit { messagesListener?.remove() }
+
+    func stopListening() {
+        hasConversationAccess = false
+        listenerGeneration = UUID()
+        messagesListener?.remove()
+        messagesListener = nil
+        messages = []
+        sendingMessages = []
+    }
+
     func fetchMessages() {
-        db.collection("stores").document(storeID).collection("messages")
+        guard messagesListener == nil else { return }
+        hasConversationAccess = true
+        let generation = UUID()
+        listenerGeneration = generation
+        messagesListener = messagesCollection
             .order(by: "timestamp", descending: false)
-            .addSnapshotListener { snapshot, _ in
+            .addSnapshotListener { [weak self] snapshot, error in
+                guard let self, self.hasConversationAccess, self.listenerGeneration == generation else { return }
+                self.operationError = error?.localizedDescription
                 self.messages = snapshot?.documents.compactMap { try? $0.data(as: ChatMessage.self) } ?? []
                 self.calculateLastReadMessages()
                 self.fetchUsersData()
@@ -40,7 +68,7 @@ class ChatViewModel: ObservableObject {
     }
     
     func sendMessage(text: String) {
-        guard let user = Auth.auth().currentUser else { return }
+        guard hasConversationAccess, let user = Auth.auth().currentUser else { return }
         
         // ΔΙΟΡΘΩΣΗ: Το reactions μπήκε πριν το readBy και προστέθηκαν ρητά τα media ως nil
         let msg = ChatMessage(
@@ -54,7 +82,11 @@ class ChatViewModel: ObservableObject {
             reactions: [:],
             readBy: [user.uid]
         )
-        try? db.collection("stores").document(storeID).collection("messages").addDocument(from: msg)
+        do {
+            try messagesCollection.addDocument(from: msg) { [weak self] error in
+                DispatchQueue.main.async { self?.operationError = error?.localizedDescription }
+            }
+        } catch { operationError = error.localizedDescription }
     }
 
     // Helper: Δημιουργία τοπικού thumbnail από το αρχείο βίντεο στη συσκευή
@@ -70,7 +102,7 @@ class ChatViewModel: ObservableObject {
     }
     
     func sendMediaMessage(item: ChatMediaItem, caption: String) {
-        guard let user = Auth.auth().currentUser else { return }
+        guard hasConversationAccess, let user = Auth.auth().currentUser else { return }
         
         let fileID = UUID().uuidString
         let finalCaption = caption.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? (caseImage(item) ? "🖼️ Φωτογραφία" : "🎥 Βίντεο") : caption
@@ -171,23 +203,24 @@ class ChatViewModel: ObservableObject {
             readBy: [user.uid]
         )
         
-        try? self.db.collection("stores").document(self.storeID).collection("messages").addDocument(from: msg) { _ in
+        try? self.messagesCollection.addDocument(from: msg) { error in
             DispatchQueue.main.async {
+                self.operationError = error?.localizedDescription
                 self.sendingMessages.removeAll { $0.id == tempID }
             }
         }
     }
     
-    func markMessageAsRead(message: ChatMessage) { guard let userID = Auth.auth().currentUser?.uid, let messageID = message.id else { return } ; if let readBy = message.readBy, readBy.contains(userID) { return } ; db.collection("stores").document(storeID).collection("messages").document(messageID).updateData(["readBy": FieldValue.arrayUnion([userID])]) }
+    func markMessageAsRead(message: ChatMessage) { guard hasConversationAccess, let userID = Auth.auth().currentUser?.uid, let messageID = message.id else { return } ; if let readBy = message.readBy, readBy.contains(userID) { return } ; messagesCollection.document(messageID).updateData(["readBy": FieldValue.arrayUnion([userID])]) }
     
     
-    func handleReaction(message: ChatMessage, emoji: String) { guard let userID = Auth.auth().currentUser?.uid, let messageID = message.id else { return } ; var currentReactions = message.reactions ?? [:] ; if currentReactions[userID] == emoji { currentReactions.removeValue(forKey: userID) } else { currentReactions[userID] = emoji } ; db.collection("stores").document(storeID).collection("messages").document(messageID).updateData(["reactions": currentReactions]) }
+    func handleReaction(message: ChatMessage, emoji: String) { guard hasConversationAccess, let userID = Auth.auth().currentUser?.uid, let messageID = message.id else { return } ; var currentReactions = message.reactions ?? [:] ; if currentReactions[userID] == emoji { currentReactions.removeValue(forKey: userID) } else { currentReactions[userID] = emoji } ; messagesCollection.document(messageID).updateData(["reactions": currentReactions]) }
     
     
-    func deleteMessage(messageID: String) { db.collection("stores").document(storeID).collection("messages").document(messageID).delete() }
+    func deleteMessage(messageID: String) { guard hasConversationAccess else { return }; messagesCollection.document(messageID).delete() }
     
     
-    func editMessage(messageID: String, newText: String) { db.collection("stores").document(storeID).collection("messages").document(messageID).updateData(["text": newText]) }
+    func editMessage(messageID: String, newText: String) { guard hasConversationAccess else { return }; messagesCollection.document(messageID).updateData(["text": newText]) }
     
     
     private func calculateLastReadMessages() { var tempLastRead: [String: String] = [:] ; for message in messages { guard let id = message.id, let readBy = message.readBy else { continue } ; for userID in readBy { tempLastRead[userID] = id } } ; DispatchQueue.main.async { self.lastReadMessageForUser = tempLastRead } }

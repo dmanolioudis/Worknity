@@ -24,6 +24,7 @@ struct WorknityApp: App {
     var body: some Scene {
         WindowGroup {
             SplashScreenView()
+                .appPreferences()
         }
     }
 }

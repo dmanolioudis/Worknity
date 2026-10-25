@@ -9,16 +9,17 @@ import SwiftUI
 import FirebaseAuth
 
 struct RootView: View {
+    var startupNamespace: Namespace.ID? = nil
     @StateObject private var authViewModel = AuthViewModel()
 
     var body: some View {
         if authViewModel.isAuthenticated {
             RootTabView()
+                .environmentObject(authViewModel)
         } else {
-            WelcomeView()
+            WelcomeView(startupNamespace: startupNamespace)
                 .environmentObject(authViewModel)
         }
     }
 }
-
 

@@ -24,6 +24,7 @@ struct CreatePostView: View {
     @State private var mediaType: PostMediaType = .none
     
     // Pickers Triggers
+    @State private var saveError: String?
     @State private var showAttachmentMenu = false // Ενιαίο μενού επιλογών
     @State private var showCameraPicker = false   // Trigger για κάμερα
     @State private var showMediaPicker = false    // Trigger για συλλογή
@@ -32,16 +33,18 @@ struct CreatePostView: View {
     @State private var isUploading = false
     @State private var isPinned = false
     
-    let mainColor = Color(hex: "#948979")
+    let mainColor = StoreDesign.ink
     
     var body: some View {
         NavigationStack {
-            ZStack {
-                Color(hex: "#DFD0B8").opacity(0.1).ignoresSafeArea()
-                
                 ScrollView {
                     VStack(alignment: .leading, spacing: 20) {
                         
+                        Label("Μοιράσου κάτι με την ομάδα", systemImage: "square.and.pencil")
+                            .font(.headline)
+                            .foregroundStyle(mainColor)
+                            .padding(.top, 8)
+
                         // Text Editor
                         ZStack(alignment: .topLeading) {
                             if postContent.isEmpty {
@@ -52,12 +55,12 @@ struct CreatePostView: View {
                             }
                             
                             TextEditor(text: $postContent)
-                                .frame(minHeight: 120)
+                                .frame(minHeight: 180)
+                                .font(.body)
                                 .scrollContentBackground(.hidden)
                                 .padding(8)
                         }
-                        .background(.ultraThinMaterial)
-                        .cornerRadius(16)
+                        .storeCard()
                         
                         // --- PREVIEWS ΤΩΝ ΕΠΙΛΕΓΜΕΝΩΝ ΠΟΛΥΜΕΣΩΝ ---
                         if mediaType != .none {
@@ -74,7 +77,7 @@ struct CreatePostView: View {
                                         .font(.headline)
                                 } else if mediaType == .file {
                                     Label(selectedFileName ?? "Αρχείο", systemImage: "doc.fill")
-                                        .foregroundColor(.blue)
+                                        .foregroundColor(mainColor)
                                         .font(.headline)
                                 }
                                 
@@ -86,8 +89,7 @@ struct CreatePostView: View {
                                 .padding(.top, 4)
                             }
                             .padding()
-                            .background(Color.black.opacity(0.05))
-                            .cornerRadius(12)
+                            .storeCard()
                         }
                         
                         // --- ΤΟ ΝΕΟ ΕΝΙΑΙΟ ΚΟΥΜΠΙ ΣΥΝΗΜΜΕΝΩΝ ---
@@ -106,9 +108,7 @@ struct CreatePostView: View {
                                 .foregroundColor(mainColor)
                                 .frame(maxWidth: .infinity)
                                 .padding()
-                                .background(.white)
-                                .cornerRadius(12)
-                                .shadow(color: .black.opacity(0.05), radius: 3)
+                                .background(StoreDesign.softAccent, in: RoundedRectangle(cornerRadius: 16))
                             }
                         }
                         .padding(.top, 10)
@@ -146,14 +146,16 @@ struct CreatePostView: View {
                         }
                         .tint(.orange)
                         .padding()
-                        .background(.ultraThinMaterial)
-                        .cornerRadius(16)
+                        .storeCard()
                     }
                     .padding()
                 }
-            }
+            .background { StoreBackdrop() }
+            .tint(mainColor)
             .navigationTitle("Νέα Δημοσίευση")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
+            .toolbarBackground(.visible, for: .navigationBar)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Ακύρωση") { dismiss() }.foregroundColor(mainColor)
@@ -170,6 +172,9 @@ struct CreatePostView: View {
                 }
             }
             // 1. Sheet για την Κάμερα
+            .alert("Αποτυχία αποθήκευσης", isPresented: Binding(get: { saveError != nil }, set: { if !$0 { saveError = nil } })) {
+                Button("OK") { saveError = nil }
+            } message: { Text(saveError ?? "") }
             .sheet(isPresented: $showCameraPicker) {
                 CameraPicker(image: $selectedImage)
                     .onDisappear {
@@ -257,9 +262,22 @@ struct CreatePostView: View {
             "likes": []
         ]
         
-        db.collection("stores").document(storeID).collection("posts").document().setData(postData) { _ in
-            isUploading = false
-            dismiss()
+        let store = db.collection("stores").document(storeID)
+        let post = store.collection("posts").document()
+        db.runTransaction({ transaction, errorPointer -> Any? in
+            do {
+                let data = try transaction.getDocument(store).data() ?? [:]
+                guard StoreAdministration.roles(from: data).can(.posts, uid: uid) else {
+                    throw NSError(domain: "Worknity.Posts", code: 1, userInfo: [NSLocalizedDescriptionKey: AppL10n.text("Δεν έχεις δικαίωμα διαχείρισης αυτού του καταστήματος.")])
+                }
+                transaction.setData(postData, forDocument: post)
+                return nil
+            } catch { errorPointer?.pointee = error as NSError; return nil }
+        }) { _, error in
+            DispatchQueue.main.async {
+                isUploading = false
+                if let error { saveError = error.localizedDescription } else { dismiss() }
+            }
         }
     }
 }

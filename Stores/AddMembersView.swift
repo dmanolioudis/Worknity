@@ -5,67 +5,52 @@ struct AddMembersView: View {
     @StateObject private var viewModel = AddMembersViewModel()
     @State private var emailInput: String = ""
     @Environment(\.dismiss) var dismiss
-    let mainColor = Color(hex: "#948979")
-
 
     var body: some View {
-        NavigationStack{
-        VStack(spacing: 20) {
-            
-            
-            TextField("Email χρήστη", text: $emailInput)
-                .padding(7)
-                .background{
-                    if #available(iOS 26.0, *){
-                        RoundedRectangle(cornerRadius: 20)
-                            .glassEffect(.clear.tint(Color.colorBar.opacity(0.4)).interactive(), in: .rect(cornerRadius: 20))
+        NavigationStack {
+            ScrollView {
+                VStack(alignment: .leading, spacing: 20) {
+                    HStack(spacing: 14) {
+                        StoreIcon(symbol: "person.badge.plus")
+                        Text("Η ομάδα μεγαλώνει")
+                            .font(.title2.weight(.semibold))
                     }
-                    else{
-                        RoundedRectangle(cornerRadius: 20)
-                            .fill(.ultraThinMaterial)
-                        
+                    Text("Πρόσθεσε ένα μέλος με το email του λογαριασμού του.")
+                        .font(.subheadline)
+                        .foregroundStyle(.secondary)
+
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Email χρήστη").font(.subheadline.weight(.medium))
+                        TextField("Email χρήστη", text: $emailInput)
+                            .textInputAutocapitalization(.never)
+                            .autocorrectionDisabled()
+                            .keyboardType(.emailAddress)
+                            .storeInput()
                     }
-                }
-                .autocapitalization(.none)
-                .keyboardType(.emailAddress)
-                .padding(.horizontal)
-            
-            Button("Προσθήκη στην Συνομιλία", action: {
-                viewModel.addMember(email: emailInput, storeID: storeID) { success in
-                    if success {
-                        DispatchQueue.main.asyncAfter(deadline: .now() + 1) { dismiss() }
+
+                    Button {
+                        viewModel.addMember(email: emailInput, storeID: storeID) { success in
+                            if success {
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 1) { dismiss() }
+                            }
+                        }
+                    } label: {
+                        Label("Προσθήκη στην Συνομιλία", systemImage: "person.badge.plus")
+                            .frame(maxWidth: .infinity)
                     }
+                    .buttonStyle(StorePrimaryButtonStyle())
+
+                    Text(viewModel.statusMessage)
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                        .fixedSize(horizontal: false, vertical: true)
                 }
-            })
-            .bold()
-            .foregroundColor(.primary)
-            .frame(maxWidth: .infinity)
-            .padding()
-            .background{
-                if #available(iOS 26.0, *){
-                    RoundedRectangle(cornerRadius: 15)
-                        .glassEffect(.clear.tint(mainColor.opacity(0.5)).interactive(), in: .rect(cornerRadius: 15))
-                }
-                else{
-                    RoundedRectangle(cornerRadius: 15)
-                        .fill(.ultraThinMaterial)
-                    
-                }
+                .padding(24)
             }
-            
-            .padding(.horizontal)
-            
-            Text(viewModel.statusMessage)
-                .font(.caption)
-                .foregroundColor(.secondary)
-        }
-        .navigationTitle("Προσθήκη Μέλους")
-        .navigationBarTitleDisplayMode(.inline)
-        .padding()
-        .frame(width: 320)
-        .cornerRadius(20)
+            .background { StoreBackdrop() }
+            .tint(StoreDesign.ink)
+            .navigationTitle("Προσθήκη Μέλους")
+            .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
-
-

@@ -19,15 +19,23 @@ class StoreFeedViewModel: ObservableObject {
     @Published var pinnedPosts: [StorePost] = []
     @Published var regularPosts: [StorePost] = []
     @Published var isManager: Bool = false
+    @Published private(set) var initialFirstUnseenPostID: String?
     
     let storeID: String
     private var db = Firestore.firestore()
     private var listener: ListenerRegistration?
+    private var roleListener: ListenerRegistration?
+    private var didCaptureInitialReadTarget = false
     
     // Αποθηκεύει το τελευταίο post που είδε ο χρήστης
     var lastSeenPostID: String {
         get { UserDefaults.standard.string(forKey: "lastSeen_\(storeID)") ?? "" }
         set { UserDefaults.standard.set(newValue, forKey: "lastSeen_\(storeID)") }
+    }
+
+    private var lastSeenPostTimestamp: TimeInterval {
+        get { UserDefaults.standard.double(forKey: "lastSeenPostTimestamp_\(storeID)") }
+        set { UserDefaults.standard.set(newValue, forKey: "lastSeenPostTimestamp_\(storeID)") }
     }
     
     init(storeID: String) {
@@ -37,20 +45,20 @@ class StoreFeedViewModel: ObservableObject {
     }
     
     deinit {
+        roleListener?.remove()
         listener?.remove() // Καθαρίζουμε τον listener όταν κλείνει το view
     }
     
     func checkIfManager() {
-        guard let currentUser = Auth.auth().currentUser else { return }
-        db.collection("stores").document(storeID).getDocument { snapshot, error in
-            if let data = snapshot?.data(), let managerID = data["manager"] as? String {
-                DispatchQueue.main.async {
-                    self.isManager = (managerID == currentUser.uid)
-                }
+        roleListener?.remove()
+        roleListener = db.collection("stores").document(storeID).addSnapshotListener { [weak self] snapshot, error in
+            let roles = StoreAdministration.roles(from: error == nil ? snapshot?.data() ?? [:] : [:])
+            DispatchQueue.main.async {
+                self?.isManager = roles.can(.posts, uid: Auth.auth().currentUser?.uid ?? "")
             }
         }
     }
-    
+
     func startListeningForPosts() {
         // Ακούμε ζωντανά την collection posts του καταστήματος
         listener = db.collection("stores").document(storeID).collection("posts")
@@ -69,9 +77,26 @@ class StoreFeedViewModel: ObservableObject {
                         newRegular.append(post)
                     }
                 }
+
+                // Migrate the older ID-only tracking the first time this code sees it.
+                if self.lastSeenPostTimestamp == 0,
+                   let storedPost = newRegular.first(where: { $0.id == self.lastSeenPostID }) {
+                    self.lastSeenPostTimestamp = storedPost.timestamp.timeIntervalSince1970
+                }
+
+                let firstUnseenPostID: String?
+                if let lastSeenIndex = newRegular.firstIndex(where: { $0.id == self.lastSeenPostID }),
+                   lastSeenIndex + 1 < newRegular.count {
+                    firstUnseenPostID = newRegular[lastSeenIndex + 1].id
+                } else {
+                    firstUnseenPostID = nil
+                }
                 
                 DispatchQueue.main.async {
-                    // Επειδή τα pinned τα θέλουμε στην κορυφή, τα βάζουμε με σειρά (τα πιο πρόσφατα καρφιτσωμένα πρώτα)
+                    if !self.didCaptureInitialReadTarget {
+                        self.initialFirstUnseenPostID = firstUnseenPostID
+                        self.didCaptureInitialReadTarget = true
+                    }
                     self.pinnedPosts = newPinned.sorted { $0.timestamp > $1.timestamp }
                     self.regularPosts = newRegular
                 }
@@ -79,6 +104,7 @@ class StoreFeedViewModel: ObservableObject {
     }
     
     func togglePin(postID: String, currentPinned: Bool) {
+        guard isManager else { return }
         // Αλλάζει την κατάσταση του isPinned στο Firestore στο αντίθετο
         db.collection("stores").document(storeID)
             .collection("posts").document(postID)
@@ -87,6 +113,14 @@ class StoreFeedViewModel: ObservableObject {
                     print("Error updating pin status: \(error.localizedDescription)")
                 }
             }
+    }
+
+    func markPostAsSeen(_ post: StorePost) {
+        let timestamp = post.timestamp.timeIntervalSince1970
+        guard timestamp >= lastSeenPostTimestamp else { return }
+
+        lastSeenPostTimestamp = timestamp
+        lastSeenPostID = post.id
     }
     
     func toggleLike(postID: String) {

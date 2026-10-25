@@ -21,9 +21,7 @@ class AddMembersViewModel: ObservableObject {
             let userID = userDoc.documentID
             
             // 2. Πρόσθεσε το UID στο πεδίο "participants" του καταστήματος
-            self.db.collection("stores").document(storeID).updateData([
-                "participants": FieldValue.arrayUnion([userID])
-            ]) { error in
+            StoreAdministration.update(storeID: storeID, change: .addMember(userID)) { error in
                 DispatchQueue.main.async {
                     if let error = error {
                         self.statusMessage = "Σφάλμα: \(error.localizedDescription)"

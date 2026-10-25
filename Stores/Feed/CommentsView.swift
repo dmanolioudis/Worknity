@@ -19,7 +19,7 @@ struct CommentsView: View {
     @State private var newCommentText: String = ""
     @Environment(\.dismiss) var dismiss
     
-    let mainColor = Color(hex: "#948979")
+    let mainColor = StoreDesign.accent
     
     init(storeID: String, postID: String) {
         _viewModel = StateObject(wrappedValue: CommentsViewModel(storeID: storeID, postID: postID))
@@ -67,35 +67,40 @@ struct CommentsView: View {
                     }
                 }
                 
-                Divider()
-                
-                // Μπάρα Εισαγωγής Σχολίου (Chat Bar)
-                HStack(spacing: 12) {
+                // A single glass surface keeps the composer light over the sheet.
+                HStack(alignment: .bottom, spacing: 10) {
                     TextField("Γράψτε ένα σχόλιο...", text: $newCommentText, axis: .vertical)
-                        .padding(.horizontal, 16)
-                        .padding(.vertical, 10)
-                        .background(Color(.systemGray6))
-                        .cornerRadius(20)
+                        .font(.body)
                         .lineLimit(1...4)
+                        .padding(.leading, 12)
+                        .padding(.trailing, 4)
+                        .padding(.vertical, 11)
+                        .frame(minHeight: 44)
+                        .accessibilityLabel("Σύνταξη σχολίου")
                     
                     Button(action: sendComment) {
                         Image(systemName: "paperplane.fill")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundColor(newCommentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? .gray : mainColor)
-                            .padding(10)
-                            .background(newCommentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? Color.clear : mainColor.opacity(0.1))
-                            .clipShape(Circle())
+                            .font(.system(size: 17, weight: .semibold))
+                            .foregroundStyle(StoreDesign.actionLabel)
+                            .frame(width: 44, height: 44)
+                            .background(StoreDesign.actionFill, in: Circle())
+                            .opacity(newCommentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty ? 0.4 : 1)
                     }
+                    .accessibilityLabel("Αποστολή σχολίου")
                     .disabled(newCommentText.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
                 }
-                .padding(.horizontal)
-                .padding(.vertical, 12)
-                .background(.ultraThinMaterial)
+                .padding(8)
+                .storeGlass(radius: 28)
+                .padding(.horizontal, 14)
+                .padding(.top, 8)
+                .padding(.bottom, 10)
             }
             .navigationTitle("Σχόλια")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbarBackground(.ultraThinMaterial, for: .navigationBar)
 
         }
+       // .presentationBackground(.ultraThinMaterial)
     }
     
     private func sendComment() {
@@ -134,9 +139,8 @@ struct CommentRowView: View {
             }
             .padding(.horizontal, 14)
             .padding(.vertical, 10)
-            .background(Color.black.opacity(0.03))
+            .background(Color.black.opacity(0.06))
             .cornerRadius(16, corners: [.topRight, .bottomLeft, .bottomRight])
-            // Το custom corner radius extension βοηθάει να μοιάζει με chat bubble, αν δεν το έχεις βάλει, απλά άφησε .cornerRadius(16)
         }
     }
 }

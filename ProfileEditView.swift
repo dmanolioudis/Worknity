@@ -20,91 +20,106 @@ struct ProfileEditView: View {
     @State private var profileImage: UIImage?
     @State private var selectedImage: UIImage?
     @State private var showImagePicker = false
-    let mainColor = Color(hex: "#948979")
-    let secondaryColor = Color(hex: "#DFD0B8")
-
-    @Environment(\.dismiss) var dismiss
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
-        NavigationView {
-                VStack(spacing: 20) {
-                    HStack {
-                        Button(action: { dismiss() }) {
-                            Image(systemName: "chevron.left")
-                                .font(.headline)
-                                .foregroundColor(mainColor)
-                        }
-                        Spacer()
-                        Text("My Profile")
-                            .font(.title3).bold()
-                            .padding(.trailing)
-                        Spacer()
-                    }
-                    .padding(.horizontal)
-                    ScrollView {
-                    VStack {
-                        Button(action: { showImagePicker = true }) {
-                            if let image = selectedImage ?? profileImage {
-                                Image(uiImage: image)
-                                    .resizable()
-                                    .scaledToFill()
-                                    .frame(width: 100, height: 100)
-                                    .clipShape(Circle())
-                            } else {
-                                Image(systemName: "person.crop.circle.fill")
-                                    .resizable()
-                                    .frame(width: 100, height: 100)
-                                    .foregroundColor(.gray)
+        ScrollView {
+            VStack(alignment: .leading, spacing: 24) {
+                AccountPageBanner(title: "Το προφίλ σου", subtitle: "Η φωτογραφία και τα προσωπικά σου στοιχεία.", symbol: "person.crop.circle")
+
+                VStack(spacing: 14) {
+                    Button { showImagePicker = true } label: {
+                        ZStack(alignment: .bottomTrailing) {
+                            Group {
+                                if let image = selectedImage ?? profileImage {
+                                    Image(uiImage: image).resizable().scaledToFill()
+                                } else {
+                                    Image(systemName: "person.crop.circle.fill")
+                                        .resizable().scaledToFit()
+                                        .foregroundStyle(StoreDesign.ink)
+                                }
                             }
-                        }
-                        .sheet(isPresented: $showImagePicker) {
-                            ImagePicker(image: $selectedImage)
+                            .frame(width: 96, height: 96)
+                            .clipShape(Circle())
+                            Image(systemName: "camera.fill")
+                                .font(.subheadline.weight(.medium))
+                                .foregroundStyle(StoreDesign.actionLabel)
+                                .frame(width: 34, height: 34)
+                                .background(StoreDesign.actionFill, in: Circle())
+                                .overlay(Circle().strokeBorder(StoreDesign.surface, lineWidth: 3))
                         }
                     }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel("Αλλαγή φωτογραφίας προφίλ")
 
-                    Group {
-                        SectionHeader(title: "Basic Detail")
-                        CustomTextField(placeholder: "Full name", text: $fullName)
-                        CustomTextField(placeholder: "Date of birth", text: $dateOfBirth)
+                    VStack(spacing: 4) {
+                        Text(fullName.isEmpty ? AppL10n.text("Η φωτογραφία σου") : fullName)
+                            .font(.headline)
+                            .multilineTextAlignment(.center)
+                        Button("Αλλαγή φωτογραφίας") { showImagePicker = true }
+                            .font(.subheadline)
+                            .foregroundStyle(StoreDesign.ink)
+                            .frame(minHeight: 44)
+                    }
+                }
+                .padding(24)
+                .frame(maxWidth: .infinity)
+                .storeCard()
 
-                        HStack(spacing: 16) {
-                            GenderButton(title: "Male", isSelected: gender == "Male") {
+                VStack(alignment: .leading, spacing: 20) {
+                    SectionHeader(title: "Προσωπικά στοιχεία")
+                    CustomTextField(placeholder: "Ονοματεπώνυμο", text: $fullName, contentType: .name)
+                    CustomTextField(placeholder: "Ημερομηνία γέννησης", text: $dateOfBirth)
+                    VStack(alignment: .leading, spacing: 8) {
+                        Text("Φύλο").font(.subheadline.weight(.medium))
+                        let layout = dynamicTypeSize.isAccessibilitySize
+                            ? AnyLayout(VStackLayout(spacing: 10))
+                            : AnyLayout(HStackLayout(spacing: 10))
+                        layout {
+                            GenderButton(title: "Άνδρας", isSelected: gender == "Male") {
                                 gender = "Male"
                             }
-                            GenderButton(title: "Female", isSelected: gender == "Female") {
+                            GenderButton(title: "Γυναίκα", isSelected: gender == "Female") {
                                 gender = "Female"
                             }
                         }
                     }
-
-                    Group {
-                        SectionHeader(title: "Contact Detail")
-
-                        CustomTextField(placeholder: "Mobile number", text: $phone, keyboardType: .phonePad)
-                        CustomTextField(placeholder: "Email", text: $email, keyboardType: .emailAddress)
-                    }
-
-                    
-
-                    Button(action: {
-                        updateUserData()
-                    }) {
-                        Text("Save")
-                            .foregroundColor(.white)
-                            .frame(maxWidth: .infinity)
-                            .padding()
-                            .background(mainColor)
-                            .cornerRadius(12)
-                    }
-                    .padding(.top)
                 }
-                .padding()
-            }
-            .onAppear(perform: fetchUserData)
-            .navigationBarHidden(true)
-        }
-        .navigationBarBackButtonHidden(true)
+                .padding(20)
+                .storeCard()
 
+                VStack(alignment: .leading, spacing: 20) {
+                    SectionHeader(title: "Στοιχεία επικοινωνίας")
+                    CustomTextField(placeholder: "Κινητό τηλέφωνο", text: $phone, keyboardType: .phonePad, contentType: .telephoneNumber)
+                    CustomTextField(placeholder: "Email", text: $email, keyboardType: .emailAddress, contentType: .emailAddress)
+                }
+                .padding(20)
+                .storeCard()
+            }
+            .padding(.horizontal, 20)
+            .padding(.top, 16)
+            .padding(.bottom, 24)
+        }
+        .scrollDismissesKeyboard(.interactively)
+        .background { StoreBackdrop() }
+        .safeAreaInset(edge: .bottom, spacing: 0) {
+            Button(action: updateUserData) {
+                Label("Αποθήκευση αλλαγών", systemImage: "checkmark")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(StorePrimaryButtonStyle())
+            .padding(.horizontal, 20)
+            .padding(.vertical, 12)
+            .background(StoreDesign.canvas)
+        }
+        .navigationTitle("Επεξεργασία προφίλ")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar(.visible, for: .navigationBar)
+        .tint(StoreDesign.ink)
+        .sheet(isPresented: $showImagePicker) {
+            ImagePicker(image: $selectedImage)
+        }
+        .onAppear(perform: fetchUserData)
     }
 
     private func fetchUserData() {
@@ -218,25 +233,36 @@ struct CustomTextField: View {
     var placeholder: String
     @Binding var text: String
     var keyboardType: UIKeyboardType = .default
+    var contentType: UITextContentType? = nil
 
     var body: some View {
-        TextField(placeholder, text: $text)
-            .padding()
-            .frame(height: 50)
-            .background(Color(UIColor.systemGray6))
-            .cornerRadius(10)
-            .keyboardType(keyboardType)
+        VStack(alignment: .leading, spacing: 8) {
+            Text(LocalizedStringKey(placeholder))
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.primary)
+            TextField(LocalizedStringKey(placeholder), text: $text)
+                .font(.body)
+                .padding(.horizontal, 14)
+                .padding(.vertical, 13)
+                .frame(minHeight: 48)
+                .background(StoreDesign.softAccent, in: RoundedRectangle(cornerRadius: 14))
+                .keyboardType(keyboardType)
+                .textContentType(contentType)
+                .textInputAutocapitalization(keyboardType == .emailAddress ? .never : .words)
+                .autocorrectionDisabled()
+                .accessibilityLabel(placeholder)
+        }
     }
 }
 
 struct SectionHeader: View {
     var title: String
+
     var body: some View {
-        HStack {
-            Text(title)
-                .fontWeight(.semibold)
-            Spacer()
-        }
+        Text(LocalizedStringKey(title))
+            .font(.headline)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .accessibilityAddTraits(.isHeader)
     }
 }
 
@@ -244,23 +270,26 @@ struct GenderButton: View {
     var title: String
     var isSelected: Bool
     var action: () -> Void
-    let mainColor = Color(hex: "#948979")
-    let secondaryColor = Color(hex: "#DFD0B8")
 
     var body: some View {
         Button(action: action) {
-            Text(title)
-                .frame(maxWidth: .infinity)
-                .padding()
-                .background(isSelected ? mainColor : Color(UIColor.systemGray5))
-                .foregroundColor(isSelected ? .white : .black)
-                .cornerRadius(10)
+            HStack(spacing: 8) {
+                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
+                Text(LocalizedStringKey(title))
+                    .font(.subheadline.weight(.medium))
+            }
+            .foregroundStyle(isSelected ? StoreDesign.actionLabel : .primary)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 13)
+            .frame(maxWidth: .infinity, minHeight: 48)
+            .background(isSelected ? StoreDesign.actionFill : StoreDesign.softAccent,
+                        in: RoundedRectangle(cornerRadius: 14))
         }
+        .buttonStyle(.plain)
+        .accessibilityAddTraits(isSelected ? [.isSelected] : [])
     }
 }
 
-
-
 #Preview {
-    ProfileEditView()
+    NavigationStack { ProfileEditView() }
 }

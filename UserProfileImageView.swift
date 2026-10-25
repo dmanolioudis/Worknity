@@ -15,7 +15,7 @@ struct UserProfileImageView: View {
     var body: some View {
         Group {
             if let urlString = urlString, let url = URL(string: urlString) {
-                AsyncImage(url: url) { image in
+                CachedRemoteImage(url: url) { image in
                     image
                         .resizable()
                         .scaledToFill()

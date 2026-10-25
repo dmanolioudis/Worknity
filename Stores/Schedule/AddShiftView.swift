@@ -25,7 +25,7 @@ struct AddShiftView: View {
     @State private var startTime2: Date = Date().addingTimeInterval(3600 * 4)
     @State private var endTime2: Date = Date().addingTimeInterval(3600 * 8)
     
-    let mainColor = Color(hex: "#948979")
+    let mainColor = StoreDesign.ink
     
     // Έλεγχος αν είμαστε σε Edit Mode
     var isEditMode: Bool { shiftToEdit != nil }
@@ -33,69 +33,75 @@ struct AddShiftView: View {
     var body: some View {
         NavigationView {
             Form {
-                // ΕΝΟΤΗΤΑ 1: ΕΠΙΛΟΓΗ ΕΡΓΑΖΟΜΕΝΟΥ
-                Section(header: Text("Εργαζόμενος")) {
-                    if isEditMode {
-                        HStack {
-                            UserProfileImageView(urlString: shiftToEdit?.employeePhotoURL, size: 30)
-                            Text(shiftToEdit?.employeeName ?? "")
-                                .bold()
-                            Spacer()
-                            Text("Επεξεργασία")
-                                .font(.caption)
-                                .foregroundColor(.secondary)
-                        }
-                    } else {
-                        Picker("Επιλογή...", selection: $selectedEmployee) {
-                            Text("Διάλεξε υπάλληλο...").tag(StoreMember?.none)
-                            ForEach(viewModel.storeMembers) { member in
-                                Text(member.fullName).tag(StoreMember?.some(member))
-                            }
-                        }
-                    }
-                }
-                
-                // ΕΝΟΤΗΤΑ 2: ΗΜΕΡΟΛΟΓΙΟ (Μόνο κατά τη δημιουργία)
-                if !isEditMode {
-                    Section(header: Text("Επιλογή Ημερών (Μαζικά για τον μήνα)")) {
-                        MultiDatePicker("Ημέρες", selection: $selectedDates)
-                            .tint(mainColor)
-                    }
-                }
-                
-                // ΕΝΟΤΗΤΑ 3: ΩΡΑΡΙΟ 1ης ΒΑΡΔΙΑΣ
-                Section(header: Text(isSplitShift ? "1η Βάρδια (Πρωί)" : "Ωράριο Βάρδιας")) {
-                    DatePicker("Έναρξη", selection: $startTime1, displayedComponents: .hourAndMinute)
-                    DatePicker("Λήξη", selection: $endTime1, displayedComponents: .hourAndMinute)
-                }
-                
-                // ΕΝΟΤΗΤΑ 4: ΣΠΑΣΤΟ ΩΡΑΡΙΟ (Μόνο κατά τη δημιουργία)
-                if !isEditMode {
-                    Section {
-                        Toggle(isOn: $isSplitShift.animation()) {
+                Group {
+                    // ΕΝΟΤΗΤΑ 1: ΕΠΙΛΟΓΗ ΕΡΓΑΖΟΜΕΝΟΥ
+                    Section(header: Text("Εργαζόμενος")) {
+                        if isEditMode {
                             HStack {
-                                Image(systemName: "clock.arrow.2.circlepath")
-                                    .foregroundColor(mainColor)
-                                Text("Σπαστό Ωράριο (2η Βάρδια)")
+                                UserProfileImageView(urlString: shiftToEdit?.employeePhotoURL, size: 30)
+                                Text(shiftToEdit?.employeeName ?? "")
+                                    .bold()
+                                Spacer()
+                                Text("Επεξεργασία")
+                                    .font(.caption)
+                                    .foregroundColor(.secondary)
+                            }
+                        } else {
+                            Picker("Επιλογή...", selection: $selectedEmployee) {
+                                Text("Διάλεξε υπάλληλο...").tag(StoreMember?.none)
+                                ForEach(viewModel.storeMembers) { member in
+                                    Text(member.fullName).tag(StoreMember?.some(member))
+                                }
                             }
                         }
-                        .tint(mainColor)
                     }
+                
+                    // ΕΝΟΤΗΤΑ 2: ΗΜΕΡΟΛΟΓΙΟ (Μόνο κατά τη δημιουργία)
+                    if !isEditMode {
+                        Section(header: Text("Επιλογή Ημερών (Μαζικά για τον μήνα)")) {
+                            MultiDatePicker("Ημέρες", selection: $selectedDates)
+                                .tint(mainColor)
+                        }
+                    }
+                
+                    // ΕΝΟΤΗΤΑ 3: ΩΡΑΡΙΟ 1ης ΒΑΡΔΙΑΣ
+                    Section(header: Text(LocalizedStringKey(isSplitShift ? "1η Βάρδια (Πρωί)" : "Ωράριο Βάρδιας"))) {
+                        DatePicker("Έναρξη", selection: $startTime1, displayedComponents: .hourAndMinute)
+                        DatePicker("Λήξη", selection: $endTime1, displayedComponents: .hourAndMinute)
+                    }
+                
+                    // ΕΝΟΤΗΤΑ 4: ΣΠΑΣΤΟ ΩΡΑΡΙΟ (Μόνο κατά τη δημιουργία)
+                    if !isEditMode {
+                        Section {
+                            Toggle(isOn: $isSplitShift.animation()) {
+                                HStack {
+                                    Image(systemName: "clock.arrow.2.circlepath")
+                                        .foregroundColor(mainColor)
+                                    Text("Σπαστό Ωράριο (2η Βάρδια)")
+                                }
+                            }
+                            .tint(mainColor)
+                        }
                     
-                    if isSplitShift {
-                        Section(header: Text("2η Βάρδια (Απόγευμα)")) {
-                            DatePicker("Έναρξη 2ης", selection: $startTime2, displayedComponents: .hourAndMinute)
-                            DatePicker("Λήξη 2ης", selection: $endTime2, displayedComponents: .hourAndMinute)
+                        if isSplitShift {
+                            Section(header: Text("2η Βάρδια (Απόγευμα)")) {
+                                DatePicker("Έναρξη 2ης", selection: $startTime2, displayedComponents: .hourAndMinute)
+                                DatePicker("Λήξη 2ης", selection: $endTime2, displayedComponents: .hourAndMinute)
+                            }
                         }
                     }
                 }
+                .listRowBackground(Rectangle().fill(.ultraThinMaterial))
             }
+            .scrollContentBackground(.hidden)
+            .background { StoreBackdrop() }
+            .tint(mainColor)
             .navigationTitle(isEditMode ? "Αλλαγή Βάρδιας" : "Μαζικό Πρόγραμμα")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button("Ακύρωση") { dismiss() }
-                        .foregroundColor(.red)
+                        .foregroundColor(mainColor)
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Αποθήκευση") {

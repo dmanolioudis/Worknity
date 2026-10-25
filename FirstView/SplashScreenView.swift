@@ -1,53 +1,73 @@
-//
-//  SplashScreenView.swift
-//  Worknity
-//
-//  Created by Dee Manolioudis on 6/6/25.
-//
-
 import SwiftUI
 
 struct SplashScreenView: View {
     @State private var isActive = false
+    @Namespace private var wordmarkNamespace
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
-        if isActive {
-            RootView()
-        } else {
-            VStack {
-                
-                Spacer()
-                
-                Image("Logo")
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 250)
-                
-                Spacer()
-                
-                Text ("Work United ")
-                    .font(.custom("Comic Neue", size: 20))
-                Text ("Stay Connected ")
-                    .font(.custom("Comic Neue", size: 20))
-                    
-                
-                Spacer()
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-           // .background(Color.primary)
-            .ignoresSafeArea()
-            .onAppear {
-                // καθυστέρηση 2 δευτερόλεπτα
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    withAnimation {
-                        isActive = true
+        ZStack {
+            if isActive {
+                // The same namespace reaches WelcomeView through RootView, so the
+                // wordmark moves from the center of the intro to the welcome header.
+                RootView(startupNamespace: wordmarkNamespace)
+                    .transition(.opacity)
+            } else {
+                StartupBrandContent(namespace: wordmarkNamespace)
+                    .background { AnimatedBlobBackground() }
+                    .transition(.opacity)
+                    .task {
+                        // A short brand introduction, not a simulated loading operation.
+                        do {
+                            try await Task.sleep(for: .seconds(2))
+                        } catch {
+                            return
+                        }
+                        withAnimation(reduceMotion ? .easeOut(duration: 0.2) : .easeInOut(duration: 0.85)) {
+                            isActive = true
+                        }
                     }
-                }
             }
         }
     }
 }
-#Preview {
-    SplashScreenView()
+
+/// Only the wordmark and official slogan; there is no separate logo or loading UI.
+private struct StartupBrandContent: View {
+    let namespace: Namespace.ID
+
+    var body: some View {
+        VStack(spacing: 18) {
+            AuthWordmark(namespace: namespace, prominent: true)
+            Text(AppBrand.slogan)
+                .font(.subheadline.weight(.medium))
+                .foregroundStyle(.secondary)
+                .tracking(0.4)
+                .multilineTextAlignment(.center)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(24)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+    }
 }
 
+private struct StartupBrandPreview: View {
+    @Namespace private var namespace
+
+    var body: some View {
+        StartupBrandContent(namespace: namespace)
+            .background { AnimatedBlobBackground() }
+    }
+}
+
+#Preview("Startup · Light") {
+    StartupBrandPreview().preferredColorScheme(.light)
+}
+
+#Preview("Startup · Dark") {
+    StartupBrandPreview().preferredColorScheme(.dark)
+}
+
+#Preview("Startup · Large text") {
+    StartupBrandPreview().environment(\.dynamicTypeSize, .accessibility3)
+}

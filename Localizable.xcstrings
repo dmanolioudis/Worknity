@@ -1,0 +1,4625 @@
+{
+  "sourceLanguage": "el",
+  "strings": {
+    "·": {},
+    "%@ (%@)": {
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@ (%2$@)"
+          }
+        }
+      }
+    },
+    "%@, %@": {
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "new",
+            "value": "%1$@, %2$@"
+          }
+        }
+      }
+    },
+    "%lld": {},
+    "%lld καταστήματα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld καταστήματα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld stores"
+          }
+        }
+      }
+    },
+    "%lld ψηφία, χωρίς τον κωδικό χώρας.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld ψηφία, χωρίς τον κωδικό χώρας."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "%lld digits, excluding the country code."
+          }
+        }
+      }
+    },
+    "❤️ Καρδιά": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "❤️ Καρδιά"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "❤️ Heart"
+          }
+        }
+      }
+    },
+    "👍 Μου αρέσει": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "👍 Μου αρέσει"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "👍 Like"
+          }
+        }
+      }
+    },
+    "👎 Δεν μου αρέσει": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "👎 Δεν μου αρέσει"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "👎 Dislike"
+          }
+        }
+      }
+    },
+    "1η Βάρδια (Πρωί)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "1η Βάρδια (Πρωί)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "First shift (morning)"
+          }
+        }
+      }
+    },
+    "2η Βάρδια (Απόγευμα)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "2η Βάρδια (Απόγευμα)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Second shift (afternoon)"
+          }
+        }
+      }
+    },
+    "Email χρήστη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email χρήστη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "User email"
+          }
+        }
+      }
+    },
+    "email@example.com": {},
+    "English": {},
+    "Manager": {},
+    "OK": {},
+    "Pinch για ζουμ · Σύρε για μετακίνηση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinch για ζουμ · Σύρε για μετακίνηση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinch to zoom · Drag to move"
+          }
+        }
+      }
+    },
+    "username": {},
+    "Worknity": {},
+    "WORKNITY": {},
+    "Άγνωστος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άγνωστος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unknown"
+          }
+        }
+      }
+    },
+    "Ακύρωση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ακύρωση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Cancel"
+          }
+        }
+      }
+    },
+    "Αλλαγή Βάρδιας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αλλαγή Βάρδιας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change shift"
+          }
+        }
+      }
+    },
+    "Αλλαγή φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αλλαγή φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change photo"
+          }
+        }
+      }
+    },
+    "Αλλαγή φωτογραφίας προφίλ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αλλαγή φωτογραφίας προφίλ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Change profile photo"
+          }
+        }
+      }
+    },
+    "Αναζήτηση μελών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αναζήτηση μελών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Search members"
+          }
+        }
+      }
+    },
+    "Αναπαραγωγή βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αναπαραγωγή βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Play video"
+          }
+        }
+      }
+    },
+    "Άνδρας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνδρας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Man"
+          }
+        }
+      }
+    },
+    "Ανοίγει τα μηνύματα της ομάδας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ανοίγει τα μηνύματα της ομάδας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opens the team's messages"
+          }
+        }
+      }
+    },
+    "Ανοίγει τα νέα, τα μηνύματα και το πρόγραμμα του καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ανοίγει τα νέα, τα μηνύματα και το πρόγραμμα του καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Opens the store's feed, messages and schedule"
+          }
+        }
+      }
+    },
+    "Άνοιγμα βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνοιγμα βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open video"
+          }
+        }
+      }
+    },
+    "Άνοιγμα συνομιλίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνοιγμα συνομιλίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open conversation"
+          }
+        }
+      }
+    },
+    "Άνοιγμα φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνοιγμα φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open photo"
+          }
+        }
+      }
+    },
+    "Άνοιγμα φωτογραφίας σε πλήρη οθόνη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Άνοιγμα φωτογραφίας σε πλήρη οθόνη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Open photo in full screen"
+          }
+        }
+      }
+    },
+    "Αποθήκευση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθήκευση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save"
+          }
+        }
+      }
+    },
+    "Αποθήκευση αλλαγών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθήκευση αλλαγών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save changes"
+          }
+        }
+      }
+    },
+    "Αποθήκευση βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθήκευση βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save video"
+          }
+        }
+      }
+    },
+    "Αποθήκευση στη Συλλογή Φωτογραφιών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθήκευση στη Συλλογή Φωτογραφιών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save to Photos"
+          }
+        }
+      }
+    },
+    "Αποθήκευση φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθήκευση φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Save photo"
+          }
+        }
+      }
+    },
+    "Αποθηκεύτηκε": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθηκεύτηκε"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved"
+          }
+        }
+      }
+    },
+    "Αποθηκεύτηκε στη Συλλογή Φωτογραφιών!": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποθηκεύτηκε στη Συλλογή Φωτογραφιών!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Saved to Photos!"
+          }
+        }
+      }
+    },
+    "Αποστολή μηνύματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποστολή μηνύματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send message"
+          }
+        }
+      }
+    },
+    "Αποστολή σχολίου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποστολή σχολίου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Send comment"
+          }
+        }
+      }
+    },
+    "Αποστολή…": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποστολή…"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sending…"
+          }
+        }
+      }
+    },
+    "Αποσύνδεση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποσύνδεση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign out"
+          }
+        }
+      }
+    },
+    "Αποτυχία αποθήκευσης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αποτυχία αποθήκευσης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Could not save"
+          }
+        }
+      }
+    },
+    "Αριθμός κινητού": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αριθμός κινητού"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mobile number"
+          }
+        }
+      }
+    },
+    "Αρχείο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αρχείο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "File"
+          }
+        }
+      }
+    },
+    "Αρχείο / Έγγραφο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αρχείο / Έγγραφο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "File / Document"
+          }
+        }
+      }
+    },
+    "Αυτός ο τύπος αρχείου δεν αποθηκεύεται στη Συλλογή.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αυτός ο τύπος αρχείου δεν αποθηκεύεται στη Συλλογή."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This file type cannot be saved to Photos."
+          }
+        }
+      }
+    },
+    "Αφαίρεση από το κατάστημα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αφαίρεση από το κατάστημα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove from store"
+          }
+        }
+      }
+    },
+    "Αφαίρεση αρχείου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αφαίρεση αρχείου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove file"
+          }
+        }
+      }
+    },
+    "Αφαίρεση μέλους;": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αφαίρεση μέλους;"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove member?"
+          }
+        }
+      }
+    },
+    "Αφαίρεση Μου αρέσει": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αφαίρεση Μου αρέσει"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unlike"
+          }
+        }
+      }
+    },
+    "Βάρδιες ημέρας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Βάρδιες ημέρας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Daily shifts"
+          }
+        }
+      }
+    },
+    "Βγάλτε Φωτογραφία (Κάμερα)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Βγάλτε Φωτογραφία (Κάμερα)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Take a photo (camera)"
+          }
+        }
+      }
+    },
+    "Βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video"
+          }
+        }
+      }
+    },
+    "Βοήθεια & πληροφορίες": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Βοήθεια & πληροφορίες"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Help & information"
+          }
+        }
+      }
+    },
+    "Γενικές ρυθμίσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γενικές ρυθμίσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General settings"
+          }
+        }
+      }
+    },
+    "Γενική ομαδική συνομιλία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γενική ομαδική συνομιλία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General group chat"
+          }
+        }
+      }
+    },
+    "Γενική Ομαδική Συνομιλία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γενική Ομαδική Συνομιλία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "General group chat"
+          }
+        }
+      }
+    },
+    "Γίνε μέρος\nτης ομάδας.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γίνε μέρος\nτης ομάδας."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Join\nthe team."
+          }
+        }
+      }
+    },
+    "Γίνετε ο πρώτος που θα σχολιάσει!": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γίνετε ο πρώτος που θα σχολιάσει!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Be the first to comment!"
+          }
+        }
+      }
+    },
+    "Γλώσσα εφαρμογής": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γλώσσα εφαρμογής"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App language"
+          }
+        }
+      }
+    },
+    "Γράψε μια λεζάντα παρακάτω...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γράψε μια λεζάντα παρακάτω..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a caption below…"
+          }
+        }
+      }
+    },
+    "Γράψτε ένα σχόλιο...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γράψτε ένα σχόλιο..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a comment…"
+          }
+        }
+      }
+    },
+    "Γυναίκα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Γυναίκα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Woman"
+          }
+        }
+      }
+    },
+    "Δεν βρέθηκε χρήστης με αυτό το email.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν βρέθηκε χρήστης με αυτό το email."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No user was found with this email."
+          }
+        }
+      }
+    },
+    "Δεν επιτράπηκε η αποθήκευση στη Συλλογή Φωτογραφιών.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν επιτράπηκε η αποθήκευση στη Συλλογή Φωτογραφιών."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Permission to save to Photos was not granted."
+          }
+        }
+      }
+    },
+    "Δεν έχεις βάρδια αυτήν την ημέρα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν έχεις βάρδια αυτήν την ημέρα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You have no shift on this day."
+          }
+        }
+      }
+    },
+    "Δεν έχεις δικαίωμα διαχείρισης αυτού του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν έχεις δικαίωμα διαχείρισης αυτού του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You don't have permission to manage this store."
+          }
+        }
+      }
+    },
+    "Δεν έχεις λογαριασμό;": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν έχεις λογαριασμό;"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Don't have an account?"
+          }
+        }
+      }
+    },
+    "Δεν έχεις πρόσβαση σε αυτή τη συνομιλία.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν έχεις πρόσβαση σε αυτή τη συνομιλία."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You don't have access to this conversation."
+          }
+        }
+      }
+    },
+    "Δεν υπάρχουν βάρδιες για το κατάστημα αυτήν την ημέρα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν υπάρχουν βάρδιες για το κατάστημα αυτήν την ημέρα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "There are no store shifts on this day."
+          }
+        }
+      }
+    },
+    "Δεν υπάρχουν σχόλια ακόμη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν υπάρχουν σχόλια ακόμη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No comments yet"
+          }
+        }
+      }
+    },
+    "Δημιούργησε έναν κωδικό": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιούργησε έναν κωδικό"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create a password"
+          }
+        }
+      }
+    },
+    "Δημιούργησε τον κοινό χώρο της ομάδας σου.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιούργησε τον κοινό χώρο της ομάδας σου."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create your team's shared space."
+          }
+        }
+      }
+    },
+    "Δημιούργησε τον λογαριασμό σου και έλα πιο κοντά στους ανθρώπους της δουλειάς σου.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιούργησε τον λογαριασμό σου και έλα πιο κοντά στους ανθρώπους της δουλειάς σου."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create your account and connect with the people you work with."
+          }
+        }
+      }
+    },
+    "Δημιουργία και διαχείριση ομάδων": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιουργία και διαχείριση ομάδων"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create and manage groups"
+          }
+        }
+      }
+    },
+    "Δημιουργία καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιουργία καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create store"
+          }
+        }
+      }
+    },
+    "Δημιουργία λογαριασμού": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιουργία λογαριασμού"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create account"
+          }
+        }
+      }
+    },
+    "Δημιουργία ομάδας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημιουργία ομάδας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Create group"
+          }
+        }
+      }
+    },
+    "Δημοσιεύσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημοσιεύσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Posts"
+          }
+        }
+      }
+    },
+    "Δημοσίευση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δημοσίευση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Post"
+          }
+        }
+      }
+    },
+    "Διαγραφή": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διαγραφή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete"
+          }
+        }
+      }
+    },
+    "Διαγραφή βάρδιας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διαγραφή βάρδιας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Delete shift"
+          }
+        }
+      }
+    },
+    "Διάλεξε υπάλληλο...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διάλεξε υπάλληλο..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose an employee…"
+          }
+        }
+      }
+    },
+    "Διαχείριση μελών και ρόλων": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διαχείριση μελών και ρόλων"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage members and roles"
+          }
+        }
+      }
+    },
+    "Διαχείριση προγράμματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διαχείριση προγράμματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manage schedule"
+          }
+        }
+      }
+    },
+    "Διεύθυνση καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διεύθυνση καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store address"
+          }
+        }
+      }
+    },
+    "Δικαιώματα manager": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δικαιώματα manager"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Manager permissions"
+          }
+        }
+      }
+    },
+    "Διόρθωση μηνύματος...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Διόρθωση μηνύματος..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit message…"
+          }
+        }
+      }
+    },
+    "Δοκιμή ξανά": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δοκιμή ξανά"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Try again"
+          }
+        }
+      }
+    },
+    "Έγγραφο / Αρχείο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έγγραφο / Αρχείο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Document / File"
+          }
+        }
+      }
+    },
+    "Εδώ εμφανίζονται οι δημοσιεύσεις και οι ενημερώσεις του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εδώ εμφανίζονται οι δημοσιεύσεις και οι ενημερώσεις του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store posts and updates appear here."
+          }
+        }
+      }
+    },
+    "Εδώ συναντιέται η ομάδα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εδώ συναντιέται η ομάδα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Where the team comes together"
+          }
+        }
+      }
+    },
+    "Ειδοποιήσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ειδοποιήσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Notifications"
+          }
+        }
+      }
+    },
+    "Έκδοση εφαρμογής": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έκδοση εφαρμογής"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "App version"
+          }
+        }
+      }
+    },
+    "Ελληνικά": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ελληνικά"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ελληνικά"
+          }
+        }
+      }
+    },
+    "Εμφάνιση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εμφάνιση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appearance"
+          }
+        }
+      }
+    },
+    "Έναρξη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έναρξη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Start"
+          }
+        }
+      }
+    },
+    "Έναρξη 2ης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έναρξη 2ης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Second shift start"
+          }
+        }
+      }
+    },
+    "Ενημερώσεις και όσα αξίζει να μοιραστούμε.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ενημερώσεις και όσα αξίζει να μοιραστούμε."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Updates and everything worth sharing."
+          }
+        }
+      }
+    },
+    "Ενημέρωση μηνύματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ενημέρωση μηνύματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Update message"
+          }
+        }
+      }
+    },
+    "Επαναφορά": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επαναφορά"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset"
+          }
+        }
+      }
+    },
+    "Επαναφορά μεγέθους": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επαναφορά μεγέθους"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset zoom"
+          }
+        }
+      }
+    },
+    "Επαναφορά προτιμήσεων": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επαναφορά προτιμήσεων"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset preferences"
+          }
+        }
+      }
+    },
+    "Επαναφορά προτιμήσεων;": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επαναφορά προτιμήσεων;"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Reset preferences?"
+          }
+        }
+      }
+    },
+    "Επεξεργασία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επεξεργασία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit"
+          }
+        }
+      }
+    },
+    "Επεξεργασία βάρδιας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επεξεργασία βάρδιας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit shift"
+          }
+        }
+      }
+    },
+    "Επεξεργασία μηνύματος...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επεξεργασία μηνύματος..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit message…"
+          }
+        }
+      }
+    },
+    "Επεξεργασία προφίλ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επεξεργασία προφίλ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Edit profile"
+          }
+        }
+      }
+    },
+    "Επιλεγμένο αρχείο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλεγμένο αρχείο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Selected file"
+          }
+        }
+      }
+    },
+    "Επίλεξε μέλη του καταστήματος και κράτησε τον εαυτό σου στην ομάδα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επίλεξε μέλη του καταστήματος και κράτησε τον εαυτό σου στην ομάδα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select store members and keep yourself in the group."
+          }
+        }
+      }
+    },
+    "Επίλεξε ποιοι συμμετέχουν στη συζήτηση.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επίλεξε ποιοι συμμετέχουν στη συζήτηση."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose who takes part in the conversation."
+          }
+        }
+      }
+    },
+    "Επιλέξτε συνημμένο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλέξτε συνημμένο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose attachment"
+          }
+        }
+      }
+    },
+    "Επιλέχθηκε Βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλέχθηκε Βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Video selected"
+          }
+        }
+      }
+    },
+    "Επιλογή ημερομηνίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή ημερομηνίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose date"
+          }
+        }
+      }
+    },
+    "Επιλογή Ημερών (Μαζικά για τον μήνα)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή Ημερών (Μαζικά για τον μήνα)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select days (monthly bulk selection)"
+          }
+        }
+      }
+    },
+    "Επιλογή όλων": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή όλων"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select all"
+          }
+        }
+      }
+    },
+    "Επιλογή φωτογραφίας προφίλ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή φωτογραφίας προφίλ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Choose profile photo"
+          }
+        }
+      }
+    },
+    "Επιλογή...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Επιλογή..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Select…"
+          }
+        }
+      }
+    },
+    "Εργαζόμενος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εργαζόμενος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Employee"
+          }
+        }
+      }
+    },
+    "Εσύ · Παραμένεις στην ομάδα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Εσύ · Παραμένεις στην ομάδα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You · You remain in the group"
+          }
+        }
+      }
+    },
+    "Έχεις ήδη λογαριασμό;": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Έχεις ήδη λογαριασμό;"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Already have an account?"
+          }
+        }
+      }
+    },
+    "Η γλώσσα αλλάζει τα μενού της εφαρμογής. Τα μηνύματα και οι δημοσιεύσεις παραμένουν όπως γράφτηκαν.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η γλώσσα αλλάζει τα μενού της εφαρμογής. Τα μηνύματα και οι δημοσιεύσεις παραμένουν όπως γράφτηκαν."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Language changes apply to the app interface. Messages and posts stay in their original language."
+          }
+        }
+      }
+    },
+    "Η εικόνα δεν μπόρεσε να αποθηκευτεί.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η εικόνα δεν μπόρεσε να αποθηκευτεί."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The image could not be saved."
+          }
+        }
+      }
+    },
+    "Η εικόνα δεν μπόρεσε να ληφθεί.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η εικόνα δεν μπόρεσε να ληφθεί."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The image could not be downloaded."
+          }
+        }
+      }
+    },
+    "Η εμφάνιση και η γλώσσα θα ακολουθούν το κινητό. Ο λογαριασμός και το περιεχόμενό σου δεν αλλάζουν.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η εμφάνιση και η γλώσσα θα ακολουθούν το κινητό. Ο λογαριασμός και το περιεχόμενό σου δεν αλλάζουν."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Appearance and language will follow your device settings. Your account and content will not change."
+          }
+        }
+      }
+    },
+    "Η εφαρμογή, όπως σε βολεύει.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η εφαρμογή, όπως σε βολεύει."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Make the app your own."
+          }
+        }
+      }
+    },
+    "Η ημέρα σου, οργανωμένη.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ημέρα σου, οργανωμένη."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your day, organized."
+          }
+        }
+      }
+    },
+    "Η κάμερα δεν είναι διαθέσιμη (π.χ. σε Simulator)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η κάμερα δεν είναι διαθέσιμη (π.χ. σε Simulator)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The camera is unavailable (for example, in the simulator)."
+          }
+        }
+      }
+    },
+    "Η ομάδα μας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ομάδα μας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Our team"
+          }
+        }
+      }
+    },
+    "Η ομάδα μεγαλώνει": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ομάδα μεγαλώνει"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The team is growing"
+          }
+        }
+      }
+    },
+    "Η ομάδα σου\nείναι εδώ.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ομάδα σου\nείναι εδώ."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your team\nis here."
+          }
+        }
+      }
+    },
+    "Η ομάδα, τα νέα και το πρόγραμμά σου. Όλα ξεκινούν εδώ.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ομάδα, τα νέα και το πρόγραμμά σου. Όλα ξεκινούν εδώ."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your team, updates and schedule. It all starts here."
+          }
+        }
+      }
+    },
+    "Η ομάδα, τα στοιχεία και τα δικαιώματα πρόσβασης.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η ομάδα, τα στοιχεία και τα δικαιώματα πρόσβασης."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your team, store details and access permissions."
+          }
+        }
+      }
+    },
+    "Η φωτογραφία δεν φορτώθηκε.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η φωτογραφία δεν φορτώθηκε."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The photo could not be loaded."
+          }
+        }
+      }
+    },
+    "Η φωτογραφία και τα προσωπικά σου στοιχεία.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η φωτογραφία και τα προσωπικά σου στοιχεία."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your photo and personal details."
+          }
+        }
+      }
+    },
+    "Η φωτογραφία προστέθηκε στη Συλλογή Φωτογραφιών.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η φωτογραφία προστέθηκε στη Συλλογή Φωτογραφιών."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The photo was saved to Photos."
+          }
+        }
+      }
+    },
+    "Η φωτογραφία σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Η φωτογραφία σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your photo"
+          }
+        }
+      }
+    },
+    "Ημέρες": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ημέρες"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Days"
+          }
+        }
+      }
+    },
+    "Ημερομηνία γέννησης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ημερομηνία γέννησης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Date of birth"
+          }
+        }
+      }
+    },
+    "Θα είσαι manager του καταστήματος. Μπορείς να προσθέσεις μέλη από τις ρυθμίσεις του.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Θα είσαι manager του καταστήματος. Μπορείς να προσθέσεις μέλη από τις ρυθμίσεις του."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You'll be the store's manager. You can add members from its settings."
+          }
+        }
+      }
+    },
+    "Ιστορικό συναλλαγών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ιστορικό συναλλαγών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Transaction history"
+          }
+        }
+      }
+    },
+    "Κάθε βάρδια, στη θέση της.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κάθε βάρδια, στη θέση της."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Every shift in place."
+          }
+        }
+      }
+    },
+    "ΚΑΛΩΣ ΗΡΘΕΣ ΞΑΝΑ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ΚΑΛΩΣ ΗΡΘΕΣ ΞΑΝΑ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "WELCOME BACK"
+          }
+        }
+      }
+    },
+    "Καρφίτσωμα δημοσίευσης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Καρφίτσωμα δημοσίευσης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin post"
+          }
+        }
+      }
+    },
+    "Καρφίτσωμα στην κορυφή": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Καρφίτσωμα στην κορυφή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pin to top"
+          }
+        }
+      }
+    },
+    "Καρφιτσωμένες δημοσιεύσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Καρφιτσωμένες δημοσιεύσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinned posts"
+          }
+        }
+      }
+    },
+    "Καταστήματα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Καταστήματα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Stores"
+          }
+        }
+      }
+    },
+    "Κινητό τηλέφωνο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κινητό τηλέφωνο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Mobile phone"
+          }
+        }
+      }
+    },
+    "Κλείσιμο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κλείσιμο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close"
+          }
+        }
+      }
+    },
+    "Κλείσιμο βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κλείσιμο βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close video"
+          }
+        }
+      }
+    },
+    "Κλείσιμο φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κλείσιμο φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Close photo"
+          }
+        }
+      }
+    },
+    "Κοντά, ακόμη κι όταν είμαστε μακριά.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κοντά, ακόμη κι όταν είμαστε μακριά."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Connected, even when we're apart."
+          }
+        }
+      }
+    },
+    "Κωδικός πρόσβασης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κωδικός πρόσβασης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Password"
+          }
+        }
+      }
+    },
+    "Κωδικός χώρας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Κωδικός χώρας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Country code"
+          }
+        }
+      }
+    },
+    "Λήξη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Λήξη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "End"
+          }
+        }
+      }
+    },
+    "Λήξη 2ης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Λήξη 2ης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Second shift end"
+          }
+        }
+      }
+    },
+    "ΜΑΖΙ, ΚΑΘΕ ΜΕΡΑ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ΜΑΖΙ, ΚΑΘΕ ΜΕΡΑ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "TOGETHER, EVERY DAY"
+          }
+        }
+      }
+    },
+    "Μαζικό Πρόγραμμα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μαζικό Πρόγραμμα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Bulk schedule"
+          }
+        }
+      }
+    },
+    "Μεγέθυνση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μεγέθυνση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Zoom in"
+          }
+        }
+      }
+    },
+    "Μεγέθυνση έως τέσσερις φορές με δύο δάχτυλα. Σύρε για μετακίνηση ή κάνε διπλό πάτημα για επαναφορά.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μεγέθυνση έως τέσσερις φορές με δύο δάχτυλα. Σύρε για μετακίνηση ή κάνε διπλό πάτημα για επαναφορά."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Pinch to zoom up to four times. Drag to move or double-tap to reset."
+          }
+        }
+      }
+    },
+    "Μέλη και ρόλοι": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μέλη και ρόλοι"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Members and roles"
+          }
+        }
+      }
+    },
+    "Μέλος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μέλος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Member"
+          }
+        }
+      }
+    },
+    "Μήνυμα...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μήνυμα..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Message…"
+          }
+        }
+      }
+    },
+    "Μηνύματα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μηνύματα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Messages"
+          }
+        }
+      }
+    },
+    "Μηνύματα · Φωτογραφίες · Βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μηνύματα · Φωτογραφίες · Βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Messages · Photos · Videos"
+          }
+        }
+      }
+    },
+    "Μια ερώτηση, μια ενημέρωση ή μια καλημέρα.\nΟ κοινός σας χώρος για κάθε μέρα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μια ερώτηση, μια ενημέρωση ή μια καλημέρα.\nΟ κοινός σας χώρος για κάθε μέρα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A question, an update or a good morning.\nYour shared space for every day."
+          }
+        }
+      }
+    },
+    "ΜΙΑ ΝΕΑ ΑΡΧΗ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ΜΙΑ ΝΕΑ ΑΡΧΗ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A FRESH START"
+          }
+        }
+      }
+    },
+    "Μια ομάδα.\nΌλα μαζί.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μια ομάδα.\nΌλα μαζί."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "One team.\nAll together."
+          }
+        }
+      }
+    },
+    "Μοιράσου κάτι με την ομάδα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μοιράσου κάτι με την ομάδα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Share something with the team"
+          }
+        }
+      }
+    },
+    "Μόνο εγώ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μόνο εγώ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only me"
+          }
+        }
+      }
+    },
+    "Μόνο τα επιλεγμένα μέλη συμμετέχουν. Τα νέα μέλη αποκτούν πρόσβαση και στο προηγούμενο ιστορικό.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μόνο τα επιλεγμένα μέλη συμμετέχουν. Τα νέα μέλη αποκτούν πρόσβαση και στο προηγούμενο ιστορικό."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Only selected members can participate. New members also gain access to previous messages."
+          }
+        }
+      }
+    },
+    "Μου αρέσει": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Μου αρέσει"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Like"
+          }
+        }
+      }
+    },
+    "Νέα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Νέα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Feed"
+          }
+        }
+      }
+    },
+    "Νέα δημοσίευση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Νέα δημοσίευση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New post"
+          }
+        }
+      }
+    },
+    "Νέα Δημοσίευση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Νέα Δημοσίευση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New post"
+          }
+        }
+      }
+    },
+    "Νέα ομάδα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Νέα ομάδα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New group"
+          }
+        }
+      }
+    },
+    "Νέο κατάστημα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Νέο κατάστημα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "New store"
+          }
+        }
+      }
+    },
+    "Ξεκαρφίτσωμα δημοσίευσης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ξεκαρφίτσωμα δημοσίευσης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Unpin post"
+          }
+        }
+      }
+    },
+    "Ο κοινός σας χώρος για επικοινωνία, ενημέρωση και μια καλύτερα οργανωμένη ημέρα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο κοινός σας χώρος για επικοινωνία, ενημέρωση και μια καλύτερα οργανωμένη ημέρα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your shared space to connect, stay informed and organize your day."
+          }
+        }
+      }
+    },
+    "Ο κωδικός σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο κωδικός σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your password"
+          }
+        }
+      }
+    },
+    "Ο λογαριασμός και οι προτιμήσεις σου.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο λογαριασμός και οι προτιμήσεις σου."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your account and preferences."
+          }
+        }
+      }
+    },
+    "Ο χρήστης προστέθηκε επιτυχώς!": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο χρήστης προστέθηκε επιτυχώς!"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The user was added successfully!"
+          }
+        }
+      }
+    },
+    "Ο χώρος σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο χώρος σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your space"
+          }
+        }
+      }
+    },
+    "Ο χώρος σου περιμένει την ομάδα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο χώρος σου περιμένει την ομάδα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your space is waiting for the team"
+          }
+        }
+      }
+    },
+    "Ο χώρος της ομάδας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ο χώρος της ομάδας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The team's space"
+          }
+        }
+      }
+    },
+    "Οι συζητήσεις μας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Οι συζητήσεις μας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Our conversations"
+          }
+        }
+      }
+    },
+    "Οι συνομιλίες είναι διαθέσιμες σε όλα τα μέλη του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Οι συνομιλίες είναι διαθέσιμες σε όλα τα μέλη του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conversations are available to every member of the store."
+          }
+        }
+      }
+    },
+    "Οι συνομιλίες του καταστήματός σου.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Οι συνομιλίες του καταστήματός σου."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your store's conversations."
+          }
+        }
+      }
+    },
+    "Όλη η ομάδα, σε έναν κοινό χώρο.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όλη η ομάδα, σε έναν κοινό χώρο."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The whole team, in one shared space."
+          }
+        }
+      }
+    },
+    "ΟΜΑΔΙΚΕΣ ΣΥΝΟΜΙΛΙΕΣ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ΟΜΑΔΙΚΕΣ ΣΥΝΟΜΙΛΙΕΣ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "GROUP CONVERSATIONS"
+          }
+        }
+      }
+    },
+    "Ομαδική συνομιλία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ομαδική συνομιλία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Group chat"
+          }
+        }
+      }
+    },
+    "Όνομα καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όνομα καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store name"
+          }
+        }
+      }
+    },
+    "Όνομα συνομιλίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όνομα συνομιλίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conversation name"
+          }
+        }
+      }
+    },
+    "Όνομα χρήστη": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όνομα χρήστη"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Username"
+          }
+        }
+      }
+    },
+    "Ονοματεπώνυμο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ονοματεπώνυμο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Full name"
+          }
+        }
+      }
+    },
+    "Όσα χρειάζεται να γνωρίζει η ομάδα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Όσα χρειάζεται να γνωρίζει η ομάδα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Everything the team needs to know."
+          }
+        }
+      }
+    },
+    "Πατήστε για άμεση προεπισκόπηση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πατήστε για άμεση προεπισκόπηση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Tap to preview"
+          }
+        }
+      }
+    },
+    "Πίσω στην αρχική": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πίσω στην αρχική"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Back to welcome"
+          }
+        }
+      }
+    },
+    "Πολυμέσα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πολυμέσα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Media"
+          }
+        }
+      }
+    },
+    "Πρέπει να παραμείνει τουλάχιστον ένας manager με δικαίωμα διαχείρισης μελών και ρόλων.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πρέπει να παραμείνει τουλάχιστον ένας manager με δικαίωμα διαχείρισης μελών και ρόλων."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "At least one manager must retain permission to manage members and roles."
+          }
+        }
+      }
+    },
+    "Προαιρετικό": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προαιρετικό"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Optional"
+          }
+        }
+      }
+    },
+    "Προβολή βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προβολή βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View video"
+          }
+        }
+      }
+    },
+    "Προβολή φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προβολή φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "View photo"
+          }
+        }
+      }
+    },
+    "Πρόγραμμα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πρόγραμμα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Schedule"
+          }
+        }
+      }
+    },
+    "Πρόσβαση στη συνομιλία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πρόσβαση στη συνομιλία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conversation access"
+          }
+        }
+      }
+    },
+    "Πρόσθεσε ένα μέλος με το email του λογαριασμού του.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πρόσθεσε ένα μέλος με το email του λογαριασμού του."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a member using their account email."
+          }
+        }
+      }
+    },
+    "Προσθήκη Αντίδρασης... 🎭": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη Αντίδρασης... 🎭"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add reaction… 🎭"
+          }
+        }
+      }
+    },
+    "Προσθήκη αρχείου ή φωτό": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη αρχείου ή φωτό"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add file or photo"
+          }
+        }
+      }
+    },
+    "Προσθήκη βάρδιας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη βάρδιας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add shift"
+          }
+        }
+      }
+    },
+    "Προσθήκη λεζάντας...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη λεζάντας..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add a caption…"
+          }
+        }
+      }
+    },
+    "Προσθήκη μέλους": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη μέλους"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add member"
+          }
+        }
+      }
+    },
+    "Προσθήκη Μέλους": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη Μέλους"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add member"
+          }
+        }
+      }
+    },
+    "Προσθήκη στην Συνομιλία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη στην Συνομιλία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add to conversation"
+          }
+        }
+      }
+    },
+    "ΠΡΟΣΘΗΚΗ ΣΤΗ ΔΗΜΟΣΙΕΥΣΗ": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ΠΡΟΣΘΗΚΗ ΣΤΗ ΔΗΜΟΣΙΕΥΣΗ"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "ADD TO YOUR POST"
+          }
+        }
+      }
+    },
+    "Προσθήκη φωτογραφίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη φωτογραφίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add photo"
+          }
+        }
+      }
+    },
+    "Προσθήκη φωτογραφίας ή βίντεο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη φωτογραφίας ή βίντεο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add photo or video"
+          }
+        }
+      }
+    },
+    "Προσωπικά στοιχεία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσωπικά στοιχεία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Personal details"
+          }
+        }
+      }
+    },
+    "Προτιμήσεις & δραστηριότητα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προτιμήσεις & δραστηριότητα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Preferences & activity"
+          }
+        }
+      }
+    },
+    "Ρόλος και δικαιώματα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ρόλος και δικαιώματα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Role and permissions"
+          }
+        }
+      }
+    },
+    "Ρυθμίσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ρυθμίσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Settings"
+          }
+        }
+      }
+    },
+    "Ρυθμίσεις καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ρυθμίσεις καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store settings"
+          }
+        }
+      }
+    },
+    "Ρυθμίσεις συνομιλίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ρυθμίσεις συνομιλίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conversation settings"
+          }
+        }
+      }
+    },
+    "Σκοτεινή": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σκοτεινή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Dark"
+          }
+        }
+      }
+    },
+    "Σπαστό Ωράριο (2η Βάρδια)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σπαστό Ωράριο (2η Βάρδια)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Split shift (second shift)"
+          }
+        }
+      }
+    },
+    "Στοιχεία επικοινωνίας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Στοιχεία επικοινωνίας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Contact details"
+          }
+        }
+      }
+    },
+    "Στοιχεία καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Στοιχεία καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store details"
+          }
+        }
+      }
+    },
+    "Στοιχεία λογαριασμού": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Στοιχεία λογαριασμού"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Account details"
+          }
+        }
+      }
+    },
+    "Στοιχεία μηνύματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Στοιχεία μηνύματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Message details"
+          }
+        }
+      }
+    },
+    "Συμπλήρωσε όλα τα πεδία.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συμπλήρωσε όλα τα πεδία."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please fill in all fields."
+          }
+        }
+      }
+    },
+    "Συμπλήρωσε σωστά όλα τα πεδία.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συμπλήρωσε σωστά όλα τα πεδία."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please fill in all fields correctly."
+          }
+        }
+      }
+    },
+    "Συμπλήρωσε σωστά όλα τα στοιχεία του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συμπλήρωσε σωστά όλα τα στοιχεία του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Please complete the store details correctly."
+          }
+        }
+      }
+    },
+    "Συμπλήρωσε σωστά το όνομα συνομιλίας.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συμπλήρωσε σωστά το όνομα συνομιλίας."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Enter a valid conversation name."
+          }
+        }
+      }
+    },
+    "Σύμφωνα με το κινητό": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σύμφωνα με το κινητό"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Use device settings"
+          }
+        }
+      }
+    },
+    "Σύνδεση": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σύνδεση"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in"
+          }
+        }
+      }
+    },
+    "Συνδέσου για να συνεχίσεις την ημέρα σου μαζί της.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνδέσου για να συνεχίσεις την ημέρα σου μαζί της."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in to continue your day together."
+          }
+        }
+      }
+    },
+    "Συνομιλία επιλεγμένων μελών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συνομιλία επιλεγμένων μελών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Conversation for selected members"
+          }
+        }
+      }
+    },
+    "Σύνταξη σχολίου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σύνταξη σχολίου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Write a comment"
+          }
+        }
+      }
+    },
+    "Συχνές ερωτήσεις": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συχνές ερωτήσεις"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Frequently asked questions"
+          }
+        }
+      }
+    },
+    "Σχετικά με την εφαρμογή": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σχετικά με την εφαρμογή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "About the app"
+          }
+        }
+      }
+    },
+    "Σχόλια": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Σχόλια"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Comments"
+          }
+        }
+      }
+    },
+    "Τα καταστήματά σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τα καταστήματά σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your stores"
+          }
+        }
+      }
+    },
+    "Τα καταστήματα στα οποία συμμετέχεις θα εμφανίζονται εδώ.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τα καταστήματα στα οποία συμμετέχεις θα εμφανίζονται εδώ."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The stores you belong to will appear here."
+          }
+        }
+      }
+    },
+    "Τα νέα μας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τα νέα μας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Our updates"
+          }
+        }
+      }
+    },
+    "Τα νέα της ομάδας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τα νέα της ομάδας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Team updates"
+          }
+        }
+      }
+    },
+    "Τηλέφωνο καταστήματος": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τηλέφωνο καταστήματος"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Store phone"
+          }
+        }
+      }
+    },
+    "Τι θέλετε να μοιραστείτε με την ομάδα;": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τι θέλετε να μοιραστείτε με την ομάδα;"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "What would you like to share with the team?"
+          }
+        }
+      }
+    },
+    "Το email πρέπει να έχει τη μορφή email@domain.com.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το email πρέπει να έχει τη μορφή email@domain.com."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Email must use the format email@domain.com."
+          }
+        }
+      }
+    },
+    "Το άτομο δεν είναι πλέον μέλος του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το άτομο δεν είναι πλέον μέλος του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This person is no longer a store member."
+          }
+        }
+      }
+    },
+    "Το βίντεο δεν είναι διαθέσιμο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το βίντεο δεν είναι διαθέσιμο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The video is unavailable"
+          }
+        }
+      }
+    },
+    "Το βίντεο δεν μπόρεσε να ληφθεί.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το βίντεο δεν μπόρεσε να ληφθεί."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The video could not be downloaded."
+          }
+        }
+      }
+    },
+    "Το βίντεο προστέθηκε στη Συλλογή Φωτογραφιών.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το βίντεο προστέθηκε στη Συλλογή Φωτογραφιών."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The video was saved to Photos."
+          }
+        }
+      }
+    },
+    "Το κατάστημα δεν είναι διαθέσιμο.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το κατάστημα δεν είναι διαθέσιμο."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The store is unavailable."
+          }
+        }
+      }
+    },
+    "Το μέλος θα χάσει την πρόσβαση στο κατάστημα. Τα προηγούμενα μηνύματα και οι βάρδιες διατηρούνται.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το μέλος θα χάσει την πρόσβαση στο κατάστημα. Τα προηγούμενα μηνύματα και οι βάρδιες διατηρούνται."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This member will lose access to the store. Existing messages and shifts will be kept."
+          }
+        }
+      }
+    },
+    "Το όνομά σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το όνομά σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your name"
+          }
+        }
+      }
+    },
+    "Το πρόγραμμά μας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το πρόγραμμά μας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Our schedule"
+          }
+        }
+      }
+    },
+    "Το πρόσωπο πίσω από το όνομα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το πρόσωπο πίσω από το όνομα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The person behind the name"
+          }
+        }
+      }
+    },
+    "Το προφίλ σου": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το προφίλ σου"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Your profile"
+          }
+        }
+      }
+    },
+    "Τουλάχιστον 8 χαρακτήρες, ένα κεφαλαίο, ένας αριθμός και ένα από τα σύμβολα !@#$&*._-": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Τουλάχιστον 8 χαρακτήρες, ένα κεφαλαίο, ένας αριθμός και ένα από τα σύμβολα !@#$&*._-"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "At least 8 characters, one uppercase letter, one number and one of !@#$&*._-"
+          }
+        }
+      }
+    },
+    "Υπάρχει ήδη κατάστημα με την ίδια διεύθυνση και τηλέφωνο.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Υπάρχει ήδη κατάστημα με την ίδια διεύθυνση και τηλέφωνο."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "A store with the same address and phone number already exists."
+          }
+        }
+      }
+    },
+    "Φόρτωση καταστημάτων": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φόρτωση καταστημάτων"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading stores"
+          }
+        }
+      }
+    },
+    "Φόρτωση...": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φόρτωση..."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Loading…"
+          }
+        }
+      }
+    },
+    "Φύλο": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φύλο"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Gender"
+          }
+        }
+      }
+    },
+    "Φωτεινή": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φωτεινή"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Light"
+          }
+        }
+      }
+    },
+    "Φωτογραφία": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φωτογραφία"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo"
+          }
+        }
+      }
+    },
+    "Φωτογραφία ή Βίντεο (Συλλογή)": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Φωτογραφία ή Βίντεο (Συλλογή)"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Photo or video (library)"
+          }
+        }
+      }
+    },
+    "Χρειάζεται σύνδεση για να δημιουργήσεις κατάστημα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Χρειάζεται σύνδεση για να δημιουργήσεις κατάστημα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Sign in to create a store."
+          }
+        }
+      }
+    },
+    "Χρήστης": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Χρήστης"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "User"
+          }
+        }
+      }
+    },
+    "Χωρίς βάρδιες": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Χωρίς βάρδιες"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "No shifts"
+          }
+        }
+      }
+    },
+    "Ωράριο Βάρδιας": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Ωράριο Βάρδιας"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Shift hours"
+          }
+        }
+      }
+    },
+    "Θα είσαι manager του καταστήματος. Τα άτομα που προσθέτεις εδώ θα συμμετέχουν ως μέλη.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Θα είσαι manager του καταστήματος. Τα άτομα που προσθέτεις εδώ θα συμμετέχουν ως μέλη."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You'll be the store's manager. People added here will join as members."
+          }
+        }
+      }
+    },
+    "Προσθήκη μελών": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη μελών"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add members"
+          }
+        }
+      }
+    },
+    "Πρόσθεσε άτομα με το email του λογαριασμού τους. Θα αποκτήσουν πρόσβαση όταν δημιουργηθεί το κατάστημα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Πρόσθεσε άτομα με το email του λογαριασμού τους. Θα αποκτήσουν πρόσβαση όταν δημιουργηθεί το κατάστημα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add people using their account email. They will gain access when the store is created."
+          }
+        }
+      }
+    },
+    "Προσθήκη στη λίστα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Προσθήκη στη λίστα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Add to list"
+          }
+        }
+      }
+    },
+    "Αφαίρεση από τη λίστα": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Αφαίρεση από τη λίστα"
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Remove from list"
+          }
+        }
+      }
+    },
+    "Δεν ήταν δυνατή η ταυτοποίηση του λογαριασμού.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Δεν ήταν δυνατή η ταυτοποίηση του λογαριασμού."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "The account could not be uniquely identified."
+          }
+        }
+      }
+    },
+    "Συμμετέχεις ήδη ως manager του καταστήματος.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Συμμετέχεις ήδη ως manager του καταστήματος."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "You're already included as the store's manager."
+          }
+        }
+      }
+    },
+    "Το άτομο υπάρχει ήδη στη λίστα.": {
+      "extractionState": "manual",
+      "localizations": {
+        "el": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "Το άτομο υπάρχει ήδη στη λίστα."
+          }
+        },
+        "en": {
+          "stringUnit": {
+            "state": "translated",
+            "value": "This person is already on the list."
+          }
+        }
+      }
+    }
+  },
+  "version": "1.0"
+}
